@@ -7,7 +7,6 @@ Welcome to my personal portfolio website! This project showcases my skills, proj
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Setup Instructions](#setup-instructions)
-- [Live Demo](#live-demo)
 - [Contact](#contact)
 
 ## About the Project
@@ -53,3 +52,37 @@ This portfolio is designed to highlight my expertise in full-stack web developme
    git clone https://github.com/your-username/My_Portfolio.git
    cd My_Portfolio
    ```
+
+2. Navigate to the backend directory:
+   ```bash
+   cd contact-form-backend
+   ```
+
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+4. Create a `.env` file in the `contact-form-backend` directory and add the following:
+   ```bash
+   EMAIL_USER=your-email@gmail.com
+   EMAIL_PASS=your-email-app-password
+   ```
+
+5. Start the backend server:
+   ```bash
+   node server.js
+   ```
+
+6. Open the `index.html` file in your browser to view the portfolio.
+
+## Contact
+
+Feel free to reach out to me for collaboration or inquiries:
+
+- **Email**: your-email@gmail.com
+- **LinkedIn**: Your LinkedIn Profile
+- **GitHub**: Your GitHub Profile
+
+
+Thank you for visiting my portfolio!
