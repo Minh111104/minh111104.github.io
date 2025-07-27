@@ -594,7 +594,7 @@ progress {
   color: #6c757d;
 }
 .blockquote-footer::before {
-  content: "— ";
+  content: "— ";
 }
 
 .img-fluid {
@@ -9645,9 +9645,6 @@ textarea.form-control-lg {
   .gap-md-0 {
     gap: 0 !important;
   }
-  .gap-md-1 {
-    gap: 0.25rem !important;
-  }
   .gap-md-2 {
     gap: 0.5rem !important;
   }
@@ -11731,4 +11728,269 @@ html {
     width: 1.5vw;
     left: -2vw;
   }
+}
+
+/* Custom Resume Styles */
+.timeline-container {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.timeline-item {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.6s ease;
+}
+
+.timeline-item.animate {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.timeline-content {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+}
+
+.timeline-dot {
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover .timeline-dot {
+    transform: scale(1.3);
+    box-shadow: 0 0 0 6px rgba(var(--bs-primary-rgb), 0.2) !important;
+}
+
+.skill-card, .language-card {
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.skill-card:hover, .language-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
+    border-color: var(--bs-primary);
+}
+
+.skill-bg {
+    transition: opacity 0.3s ease;
+}
+
+.skill-card:hover .skill-bg, .language-card:hover .skill-bg {
+    opacity: 0.2 !important;
+}
+
+.language-icon {
+    transition: transform 0.3s ease;
+}
+
+.language-card:hover .language-icon {
+    transform: scale(1.1);
+}
+
+.progress {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    transition: width 1.5s ease-in-out;
+    border-radius: 10px;
+}
+
+/* Timeline Date Styles */
+.timeline-date {
+    transition: all 0.3s ease;
+    opacity: 0.8;
+}
+
+.timeline-item:hover .timeline-date {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* Responsive timeline adjustments */
+@media (max-width: 768px) {
+    .timeline-container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .timeline-line {
+        display: none;
+    }
+    
+    .timeline-dot {
+        display: none;
+    }
+    
+    .timeline-date {
+        position: static !important;
+        width: auto !important;
+        text-align: left !important;
+        margin-bottom: 0.5rem;
+        opacity: 1;
+    }
+    
+    .timeline-content {
+        margin-left: 0 !important;
+    }
+}
+
+/* Animation for progress bars on scroll */
+@keyframes progressFill {
+    from { width: 0%; }
+    to { width: var(--progress-width); }
+}
+
+.progress-bar.animate {
+    animation: progressFill 1.5s ease-out forwards;
+}
+
+/* Enhanced card styling */
+.card {
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+/* Enhanced Experience Card Styles */
+.experience-card {
+    transition: all 0.4s ease;
+    border: 1px solid transparent;
+}
+
+.experience-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1) !important;
+    border-color: var(--bs-primary);
+}
+
+.experience-header {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.experience-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.experience-card:hover .experience-header::before {
+    left: 100%;
+}
+
+.experience-icon {
+    transition: all 0.3s ease;
+}
+
+.experience-card:hover .experience-icon {
+    transform: scale(1.1) rotate(5deg);
+    opacity: 0.4 !important;
+}
+
+.achievement-item {
+    display: flex;
+    align-items: flex-start;
+    transition: all 0.3s ease;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.achievement-item:hover {
+    background-color: rgba(var(--bs-primary-rgb), 0.05);
+    transform: translateX(5px);
+}
+
+.achievement-icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(var(--bs-primary-rgb), 0.1);
+    transition: all 0.3s ease;
+}
+
+.achievement-item:hover .achievement-icon {
+    background: var(--bs-primary);
+    color: white !important;
+    transform: scale(1.2);
+}
+
+.highlight {
+    color: var(--bs-primary);
+    font-weight: 600;
+    background: linear-gradient(120deg, rgba(var(--bs-primary-rgb), 0.1) 0%, rgba(var(--bs-primary-rgb), 0.1) 100%);
+    padding: 0.1rem 0.3rem;
+    border-radius: 0.25rem;
+    transition: all 0.3s ease;
+}
+
+.achievement-item:hover .highlight {
+    background: linear-gradient(120deg, rgba(var(--bs-primary-rgb), 0.2) 0%, rgba(var(--bs-primary-rgb), 0.2) 100%);
+    transform: scale(1.05);
+}
+
+/* Gradient backgrounds for experience headers */
+.bg-gradient-secondary-to-primary {
+    background: linear-gradient(135deg, var(--bs-secondary) 0%, var(--bs-primary) 100%);
+}
+
+.bg-gradient-success-to-info {
+    background: linear-gradient(135deg, var(--bs-success) 0%, var(--bs-info) 100%);
+}
+
+.bg-gradient-info-to-warning {
+    background: linear-gradient(135deg, var(--bs-info) 0%, var(--bs-warning) 100%);
+}
+
+.bg-gradient-warning-to-danger {
+    background: linear-gradient(135deg, var(--bs-warning) 0%, var(--bs-danger) 100%);
+}
+
+.bg-gradient-danger-to-primary {
+    background: linear-gradient(135deg, var(--bs-danger) 0%, var(--bs-primary) 100%);
+}
+
+/* Custom gradient backgrounds for skill cards */
+.skill-card:nth-child(1) .skill-bg {
+    background: linear-gradient(45deg, #1e30f3, #e21e80);
+}
+
+.skill-card:nth-child(2) .skill-bg {
+    background: linear-gradient(45deg, #e21e80, #198754);
+}
+
+.skill-card:nth-child(3) .skill-bg {
+    background: linear-gradient(45deg, #198754, #0dcaf0);
+}
+
+.skill-card:nth-child(4) .skill-bg {
+    background: linear-gradient(45deg, #0dcaf0, #ffc107);
+}
+
+.skill-card:nth-child(5) .skill-bg {
+    background: linear-gradient(45deg, #ffc107, #dc3545);
+}
+
+.skill-card:nth-child(6) .skill-bg {
+    background: linear-gradient(45deg, #dc3545, #1e30f3);
 }
