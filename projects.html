@@ -40,53 +40,89 @@
                     <div class="text-center mb-5">
                         <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Projects</span></h1>
                     </div>
-                    <div class="row gx-5 justify-content-center">
-                        <div class="col-lg-11 col-xl-9 col-xxl-8">
-                            <!-- Project Card 1-->
-                            <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
-                                <div class="card-body p-0">
-                                    <div class="d-flex align-items-center">
-                                        <div class="p-5">
-                                            <h2 class="fw-bolder"><a href="https://devpost.com/software/hocus-focus-1c9vxr">HocusFocus</a></h2>
-                                            <p>
-                                                <li>A mobile app that promotes focused reading by rewarding users for time spent reading and completing quizzes, while penalizing social media usage</li>
-                                                <li>Won the <b>Best Beginner Hack</b> at HackDearborn3</li>
-                                                <li><b>Tech stack:</b> Python Flask, React Native, Javascript, Crew.ai, CSS3, HTML5, Android Studio</li>
-                                            </p>
-                                        </div>
-                                        <img class="img-fluid" src="images/hocus_focus_300x400.jpg" alt="hocus_focus_title"/>
+                    <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
+                        <!-- Project: HocusFocus -->
+                        <div class="col">
+                            <div class="card project-card h-100 shadow rounded-4 border-0 position-relative">
+                                <div class="project-image">
+                                    <img class="card-img-top" src="images/hocus_focus_300x400.jpg" alt="hocus_focus_title" loading="lazy" />
+                                </div>
+                                <div class="card-body p-4">
+                                    <h3 class="h4 fw-bolder mb-2">
+                                        <a class="stretched-link text-decoration-none" href="https://devpost.com/software/hocus-focus-1c9vxr" target="_blank" rel="noopener">HocusFocus</a>
+                                    </h3>
+                                    <p class="text-muted mb-3">Mobile app that rewards focused reading and quizzes, discouraging social media distractions.</p>
+                                    <div class="tech-badges mb-3">
+                                        <span class="badge rounded-pill bg-light text-dark border me-1 mb-1">Python Flask</span>
+                                        <span class="badge rounded-pill bg-light text-dark border me-1 mb-1">React Native</span>
+                                        <span class="badge rounded-pill bg-light text-dark border me-1 mb-1">JavaScript</span>
+                                        <span class="badge rounded-pill bg-light text-dark border me-1 mb-1">Crew.ai</span>
+                                        <span class="badge rounded-pill bg-light text-dark border me-1 mb-1">HTML/CSS</span>
+                                    </div>
+                                    <div class="d-flex align-items-center gap-2">
+                                        <a class="btn btn-sm btn-primary px-3" href="https://devpost.com/software/hocus-focus-1c9vxr" target="_blank" rel="noopener">
+                                            <i class="bi bi-box-arrow-up-right me-1"></i> View project
+                                        </a>
+                                        <span class="small text-warning d-inline-flex align-items-center">
+                                            <i class="bi bi-trophy me-1"></i> Best Beginner Hack @ HackDearborn3
+                                        </span>
                                     </div>
                                 </div>
                             </div>
-                            <!-- Project Card 2-->
-                            <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
-                                <div class="card-body p-0">
-                                    <div class="d-flex align-items-center">
-                                        <div class="p-5">
-                                            <h2 class="fw-bolder"><a href="https://devpost.com/software/wheelappeal">WheelAppeal</a></h2>
-                                            <p>
-                                                <li>An innovative tool with an interactive chatbot that guides users towards finding their ideal automobile</li>
-                                                <li>The app then generates a curated list of vehicles depending on the user's preferences, complete with lucid images and extensive descriptions</li>
-                                                <li><b>Tech Stack:</b> PartyRock AWS, Prompt Engineering, Foundational Model</li>
-                                            </p>
-                                        </div>
-                                        <img class="img-fluid" src="images/car_300x400.jpg" alt="old_car" />
+                        </div>
+
+                        <!-- Project: WheelAppeal -->
+                        <div class="col">
+                            <div class="card project-card h-100 shadow rounded-4 border-0 position-relative">
+                                <div class="project-image">
+                                    <img class="card-img-top" src="images/car_300x400.jpg" alt="wheelappeal" loading="lazy" />
+                                </div>
+                                <div class="card-body p-4">
+                                    <h3 class="h4 fw-bolder mb-2">
+                                        <a class="stretched-link text-decoration-none" href="https://devpost.com/software/wheelappeal" target="_blank" rel="noopener">WheelAppeal</a>
+                                    </h3>
+                                    <p class="text-muted mb-3">Interactive chatbot that guides users to find their ideal vehicle and generates a curated list with images and descriptions.</p>
+                                    <div class="tech-badges mb-3">
+                                        <span class="badge rounded-pill bg-light text-dark border me-1 mb-1">PartyRock (AWS)</span>
+                                        <span class="badge rounded-pill bg-light text-dark border me-1 mb-1">Prompt Engineering</span>
+                                        <span class="badge rounded-pill bg-light text-dark border me-1 mb-1">Foundation Model</span>
+                                    </div>
+                                    <div class="d-flex align-items-center gap-2">
+                                        <a class="btn btn-sm btn-primary px-3" href="https://devpost.com/software/wheelappeal" target="_blank" rel="noopener">
+                                            <i class="bi bi-box-arrow-up-right me-1"></i> View project
+                                        </a>
                                     </div>
                                 </div>
                             </div>
-                            <!-- Project Card 3-->
-                            <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
-                                <div class="card-body p-0">
-                                    <div class="d-flex align-items-center">
-                                        <div class="p-5">
-                                            <h2 class="fw-bolder"><a href="https://devpost.com/software/moneymasters">MoneyMasters</a></h2>
-                                            <p>
-                                                <li>An amazing web app that teaches people financial literacy skills through interactive modules</li>
-                                                <li>Won the <b>Financial Inclusion Track</b> at HackDearborn2</li>
-                                                <li><b>Tech Stack:</b> JavaScript, Typescript, Node.js, Express.js, React, HTML5, Tailwind CSS, Firebase, GCP</li>
-                                            </p>
-                                        </div>
-                                        <img class="img-fluid" src="images/money_masters_300x400.jpg" alt="money_masters_title" />
+                        </div>
+
+                        <!-- Project: MoneyMasters -->
+                        <div class="col">
+                            <div class="card project-card h-100 shadow rounded-4 border-0 position-relative">
+                                <div class="project-image">
+                                    <img class="card-img-top" src="images/money_masters_300x400.jpg" alt="money_masters_title" loading="lazy" />
+                                </div>
+                                <div class="card-body p-4">
+                                    <h3 class="h4 fw-bolder mb-2">
+                                        <a class="stretched-link text-decoration-none" href="https://devpost.com/software/moneymasters" target="_blank" rel="noopener">MoneyMasters</a>
+                                    </h3>
+                                    <p class="text-muted mb-3">Web app teaching financial literacy with interactive modules and activities.</p>
+                                    <div class="tech-badges mb-3">
+                                        <span class="badge rounded-pill bg-light text-dark border me-1 mb-1">JavaScript</span>
+                                        <span class="badge rounded-pill bg-light text-dark border me-1 mb-1">TypeScript</span>
+                                        <span class="badge rounded-pill bg-light text-dark border me-1 mb-1">React</span>
+                                        <span class="badge rounded-pill bg-light text-dark border me-1 mb-1">Node.js</span>
+                                        <span class="badge rounded-pill bg-light text-dark border me-1 mb-1">Express</span>
+                                        <span class="badge rounded-pill bg-light text-dark border me-1 mb-1">Firebase</span>
+                                        <span class="badge rounded-pill bg-light text-dark border me-1 mb-1">GCP</span>
+                                    </div>
+                                    <div class="d-flex align-items-center gap-2">
+                                        <a class="btn btn-sm btn-primary px-3" href="https://devpost.com/software/moneymasters" target="_blank" rel="noopener">
+                                            <i class="bi bi-box-arrow-up-right me-1"></i> View project
+                                        </a>
+                                        <span class="small text-warning d-inline-flex align-items-center">
+                                            <i class="bi bi-trophy me-1"></i> Financial Inclusion Track Winner @ HackDearborn2
+                                        </span>
                                     </div>
                                 </div>
                             </div>
