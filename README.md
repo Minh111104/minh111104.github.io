@@ -49,8 +49,8 @@ This portfolio is designed to highlight my expertise in full-stack web developme
 ### Steps:
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/My_Portfolio.git
-   cd My_Portfolio
+   git clone https://github.com/minh111104/minh111104.github.io.git
+   cd minh111104.github.io
    ```
 
 2. Navigate to the backend directory:
