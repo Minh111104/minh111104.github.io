@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <title>AR Profile Card • Minh</title>
+        <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet" />
+        <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+        <style>
+            body { background: #0d1117; color: #e6edf3; }
+            .container-narrow { max-width: 960px; margin: 0 auto; padding: 24px; }
+            .hero { text-align: center; margin-top: 24px; margin-bottom: 16px; }
+            .hint { color: #9aa4b2; }
+            .mv-wrapper { position: relative; border-radius: 16px; overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,0.4); background: radial-gradient(1200px 600px at 50% -10%, #1f6feb22, transparent); }
+            .mv { width: 100%; height: 75vh; min-height: 420px; background: linear-gradient(180deg, rgba(31,111,235,0.06) 0%, rgba(13,17,23,0.8) 100%); }
+            .toolbar { display: flex; gap: 8px; justify-content: center; align-items: center; margin-top: 12px; flex-wrap: wrap; }
+            .badge-pill { background: #161b22; border: 1px solid #30363d; border-radius: 999px; padding: 6px 12px; font-size: 12px; color: #9aa4b2; }
+            a.btn-back { color: #58a6ff; text-decoration: none; }
+            a.btn-back:hover { text-decoration: underline; }
+            
+            /* Hotspot Styles */
+            .hotspot { 
+                display: block; 
+                width: 20px; 
+                height: 20px; 
+                border-radius: 50%; 
+                background: #007bff; 
+                border: 2px solid #fff; 
+                cursor: pointer; 
+                box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+                transition: all 0.3s ease;
+            }
+            .hotspot:hover { 
+                background: #0056b3; 
+                transform: scale(1.2); 
+            }
+            .hotspot-content { 
+                position: absolute; 
+                bottom: 25px; 
+                left: 50%; 
+                transform: translateX(-50%); 
+                background: rgba(0,0,0,0.8); 
+                color: white; 
+                padding: 8px 12px; 
+                border-radius: 6px; 
+                white-space: nowrap; 
+                font-size: 12px; 
+                opacity: 0; 
+                transition: opacity 0.3s ease;
+                pointer-events: none;
+            }
+            .hotspot:hover .hotspot-content { 
+                opacity: 1; 
+            }
+            .hotspot-label { 
+                font-weight: bold; 
+                margin-bottom: 2px; 
+            }
+            .hotspot-description { 
+                font-size: 10px; 
+                color: #ccc; 
+            }
+            
+            /* Hotspot Styles - No Arrows */
+            
+            @keyframes pulse {
+                0%, 100% { 
+                    opacity: 1; 
+                    transform: scale(1);
+                }
+                50% { 
+                    opacity: 0.7; 
+                    transform: scale(1.1);
+                }
+            }
+            
+            /* External Hotspot Labels - Hover Only */
+            .hotspot-labels {
+                position: relative;
+                margin: 20px 0;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 20px;
+            }
+            
+            .label-website, .label-linkedin, .label-github {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                position: relative;
+                opacity: 0;
+                transform: translateY(20px);
+                transition: all 0.3s ease;
+                pointer-events: none;
+            }
+            
+            .mv-wrapper:hover .label-website,
+            .mv-wrapper:hover .label-linkedin,
+            .mv-wrapper:hover .label-github {
+                opacity: 1;
+                transform: translateY(0);
+                pointer-events: auto;
+            }
+            
+            
+            .label-content {
+                background: rgba(0,0,0,0.9);
+                color: white;
+                padding: 8px 12px;
+                border-radius: 8px;
+                border: 1px solid #007bff;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+                backdrop-filter: blur(10px);
+            }
+            
+            .label-title {
+                font-weight: bold;
+                font-size: 14px;
+                margin-bottom: 2px;
+            }
+            
+            .label-desc {
+                font-size: 11px;
+                color: #ccc;
+            }
+            
+            .label-website {
+                order: 2;
+                transition-delay: 0.1s;
+            }
+            
+            .label-linkedin {
+                order: 1;
+                transition-delay: 0s;
+            }
+            
+            .label-github {
+                order: 3;
+                transition-delay: 0.2s;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container-narrow">
+            <div class="hero">
+                <h1 class="display-6 fw-bolder" style="margin-bottom: 4px;">AR Profile Card</h1>
+                <div class="hint">Move your phone to place the 3D card in your space.</div>
+            </div>
+
+            <div class="mv-wrapper">
+                <!-- 3D Business Card Model with Your Design -->
+                <model-viewer
+                    class="mv"
+                    src="models/business-card.glb"
+                    ios-src="models/business-card.usdz"
+                    ar
+                    ar-modes="webxr scene-viewer quick-look"
+                    ar-scale="fixed"
+                    camera-controls
+                    interaction-prompt="auto"
+                    environment-intensity="1.2"
+                    exposure="1.1"
+                    shadow-intensity="1.0"
+                    poster="images/business-card.jpg"
+                    alt="Minh Nguyen - Computer Science Student @ BGSU - AR Business Card"
+                    camera-orbit="0deg 75deg 4m"
+                    min-camera-orbit="auto auto 2m"
+                    max-camera-orbit="auto auto 15m"
+                    orbit-sensitivity="1"
+                    touch-action="pan-y"
+                    style="transform: rotateX(180deg);"
+                >
+                    <button slot="ar-button" style="position: absolute; left: 50%; transform: translateX(-50%); bottom: 16px; background:#238636; color:#fff; border:0; padding:10px 16px; border-radius:999px; box-shadow:0 8px 24px rgba(0,0,0,.25);">
+                        <i class="bi bi-camera"></i> View in your space
+                    </button>
+                    
+                    <!-- Interactive Hotspots -->
+                    <div class="hotspot" slot="hotspot-website" data-position="2.4 1.1 0.01" data-normal="0 0 1" data-visibility-attribute="visible">
+                    </div>
+                    
+                    <div class="hotspot" slot="hotspot-linkedin" data-position="-0.3 2.25 0.01" data-normal="0 0 1" data-visibility-attribute="visible">
+                    </div>
+                    
+                    <div class="hotspot" slot="hotspot-github" data-position="-2.2 2.2 0.01" data-normal="0 0 1" data-visibility-attribute="visible">
+                    </div>
+                </model-viewer>
+            </div>
+
+            <!-- External Hotspot Labels -->
+            <div class="hotspot-labels">
+                <div class="label-website">
+                    <div class="label-content">
+                        <div class="label-title">🌐 Website</div>
+                        <div class="label-desc">Next to "Websites" text</div>
+                    </div>
+                </div>
+                
+                <div class="label-linkedin">
+                    <div class="label-content">
+                        <div class="label-title">💼 LinkedIn</div>
+                        <div class="label-desc">Next to "Message" button</div>
+                    </div>
+                </div>
+                
+                <div class="label-github">
+                    <div class="label-content">
+                        <div class="label-title">💻 GitHub</div>
+                        <div class="label-desc">Next to "Join to view profile" button</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="toolbar" style="margin-top: 16px;">
+                <span class="badge-pill">AR: WebXR • Scene Viewer • Quick Look</span>
+                <span class="badge-pill">Tip: Pinch to scale, drag to rotate</span>
+                <span class="badge-pill">Hover over card to see interactive areas</span>
+            </div>
+
+            <div class="toolbar" style="margin-top: 12px;">
+                <a class="btn-back" href="index.html"><i class="bi bi-arrow-left"></i> Back to Home</a>
+                <a class="btn-back" href="#" id="share-link"><i class="bi bi-share"></i> Share</a>
+            </div>
+
+            <p class="hint" style="text-align:center; margin-top: 12px;">
+                Having trouble? Ensure camera permissions are allowed and try Chrome/Safari on mobile.
+            </p>
+        </div>
+
+        <script>
+            (function() {
+                var share = document.getElementById('share-link');
+                if (share && navigator.share) {
+                    share.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        navigator.share({ title: 'AR Profile Card • Minh', url: window.location.href }).catch(function(){});
+                    });
+                }
+
+                // Add rotation controls hint and hotspot functionality
+                document.addEventListener('DOMContentLoaded', function() {
+                    const modelViewer = document.querySelector('model-viewer');
+                    if (modelViewer) {
+                        // Wait for model to load
+                        modelViewer.addEventListener('load', function() {
+                            // Add rotation controls hint
+                            const hint = document.createElement('div');
+                            hint.style.cssText = 'position: absolute; top: 10px; left: 10px; background: rgba(0,0,0,0.7); color: white; padding: 8px 12px; border-radius: 4px; font-size: 12px; z-index: 10;';
+                            hint.textContent = '💡 Drag to rotate • Pinch to zoom • Tap AR button for AR mode';
+                            modelViewer.parentElement.appendChild(hint);
+                            
+                            // Remove hint after 5 seconds
+                            setTimeout(() => {
+                                if (hint.parentElement) {
+                                    hint.parentElement.removeChild(hint);
+                                }
+                            }, 5000);
+                            
+                            // Add hotspot click handlers
+                            const hotspots = modelViewer.querySelectorAll('.hotspot');
+                            hotspots.forEach(hotspot => {
+                                hotspot.addEventListener('click', function(e) {
+                                    e.stopPropagation();
+                                    
+                                    // Get the slot name to determine which link to open
+                                    const slot = hotspot.getAttribute('slot');
+                                    
+                                    let url = '';
+                                    switch(slot) {
+                                        case 'hotspot-website':
+                                            url = 'https://minh111104.github.io/';
+                                            break;
+                                        case 'hotspot-linkedin':
+                                            url = 'https://www.linkedin.com/in/minhnguyen1111/';
+                                            break;
+                                        case 'hotspot-github':
+                                            url = 'https://github.com/Minh111104';
+                                            break;
+                                    }
+                                    
+                                    if (url) {
+                                        // Open in new tab
+                                        window.open(url, '_blank');
+                                        
+                                        // Show feedback
+                                        const feedback = document.createElement('div');
+                                        feedback.style.cssText = 'position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.8); color: white; padding: 12px 20px; border-radius: 8px; font-size: 14px; z-index: 1000;';
+                                        feedback.textContent = '🌐 Opening ' + (slot === 'hotspot-website' ? 'Portfolio' : slot === 'hotspot-linkedin' ? 'LinkedIn' : 'GitHub') + '...';
+                                        document.body.appendChild(feedback);
+                                        
+                                        setTimeout(() => {
+                                            if (feedback.parentElement) {
+                                                feedback.parentElement.removeChild(feedback);
+                                            }
+                                        }, 2000);
+                                    }
+                                });
+                            });
+                        });
+                    }
+                });
+            })();
+        </script>
+    </body>
+</html>
+
+
