@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple 3D Business Card Generator</title>
+    <style>
+        body { margin: 0; padding: 20px; background: #f0f0f0; font-family: Arial, sans-serif; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .card { background: white; padding: 20px; border-radius: 8px; margin: 20px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .upload-area { border: 2px dashed #007bff; padding: 40px; text-align: center; border-radius: 8px; margin: 20px 0; }
+        .upload-area.dragover { background: #f8f9fa; border-color: #0056b3; }
+        input[type="file"] { display: none; }
+        .upload-btn { background: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; }
+        .upload-btn:hover { background: #0056b3; }
+        #preview { max-width: 100%; max-height: 300px; margin: 20px 0; border: 1px solid #ddd; }
+        .download-section { background: #e7f3ff; padding: 20px; border-radius: 8px; margin: 20px 0; }
+        .step { margin: 10px 0; padding: 10px; background: #f8f9fa; border-radius: 4px; }
+        .step-number { background: #007bff; color: white; border-radius: 50%; width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; margin-right: 10px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 Simple 3D Business Card Generator</h1>
+        
+        <div class="card">
+            <h3>Step 1: Upload Your Business Card Image</h3>
+            <div class="upload-area" id="uploadArea">
+                <p>📁 Drag & drop your business card image here, or click to browse</p>
+                <button class="upload-btn" onclick="document.getElementById('fileInput').click()">Choose Image</button>
+                <input type="file" id="fileInput" accept="image/*">
+            </div>
+            <img id="preview" style="display: none;" alt="Preview">
+        </div>
+
+        <div class="card" id="downloadCard" style="display: none;">
+            <h3>Step 2: Download Your 3D Model</h3>
+            <div class="download-section">
+                <p><strong>✅ Your 3D business card is ready!</strong></p>
+                <p>Download the GLB file and convert it for iOS AR support:</p>
+                
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <strong>Download GLB file:</strong> <button id="downloadGLB" class="upload-btn">Download business-card.glb</button>
+                </div>
+                
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <strong>Convert for iOS:</strong> 
+                    <a href="https://www.meshy.ai/3d-tools/file-converter/glb/to/usdz" target="_blank" class="upload-btn" style="text-decoration: none; display: inline-block; margin-left: 10px;">Convert GLB to USDZ</a>
+                    <p style="margin: 5px 0 0 34px; font-size: 14px; color: #666;">Upload your GLB file and download the USDZ version</p>
+                </div>
+                
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <strong>Save files:</strong> 
+                    <ul style="margin: 5px 0 0 34px;">
+                        <li>Save GLB as: <code>models/business-card.glb</code></li>
+                        <li>Save USDZ as: <code>models/business-card.usdz</code></li>
+                    </ul>
+                </div>
+                
+                <div class="step">
+                    <span class="step-number">4</span>
+                    <strong>Test AR:</strong> 
+                    <p style="margin: 5px 0 0 34px; font-size: 14px; color: #666;">Scan the QR code on your homepage to test the AR experience!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/exporters/GLTFExporter.js"></script>
+    <script>
+        let scene, camera, renderer, card, exporter;
+        let cardTexture = null;
+
+        function init() {
+            // Scene setup
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, 400 / 300, 0.1, 1000);
+            renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setSize(400, 300);
+            renderer.setClearColor(0xf0f0f0);
+            
+            // Lighting
+            const ambientLight = new THREE.AmbientLight(0x404040, 0.6);
+            scene.add(ambientLight);
+            
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+            directionalLight.position.set(10, 10, 5);
+            scene.add(directionalLight);
+            
+            // Camera position
+            camera.position.z = 5;
+            
+            // Initialize exporter
+            exporter = new THREE.GLTFExporter();
+        }
+
+        // Handle file upload
+        document.getElementById('fileInput').addEventListener('change', handleFile);
+        
+        // Handle drag and drop
+        const uploadArea = document.getElementById('uploadArea');
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+        
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+        
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleFile({ target: { files } });
+            }
+        });
+
+        function handleFile(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = new Image();
+                    img.onload = function() {
+                        // Create texture from image
+                        const canvas = document.createElement('canvas');
+                        const ctx = canvas.getContext('2d');
+                        canvas.width = img.width;
+                        canvas.height = img.height;
+                        ctx.drawImage(img, 0, 0);
+                        
+                        cardTexture = new THREE.CanvasTexture(canvas);
+                        cardTexture.flipY = false;
+                        cardTexture.wrapS = THREE.ClampToEdgeWrapping;
+                        cardTexture.wrapT = THREE.ClampToEdgeWrapping;
+                        
+                        // Show preview
+                        const preview = document.getElementById('preview');
+                        preview.src = e.target.result;
+                        preview.style.display = 'block';
+                        
+                        // Generate 3D model
+                        generate3DCard();
+                        
+                        // Show download section
+                        document.getElementById('downloadCard').style.display = 'block';
+                    };
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function generate3DCard() {
+            if (!cardTexture) return;
+
+            // Clear existing card
+            if (card) {
+                scene.remove(card);
+            }
+            
+            // Business card dimensions (3.5" x 2" x 0.1")
+            const width = 3.5 * 2.54; // Convert inches to cm
+            const height = 2 * 2.54;
+            const thickness = 0.1;
+            
+            // Create card group
+            card = new THREE.Group();
+            
+            // Front face with texture
+            const frontGeometry = new THREE.BoxGeometry(width, height, thickness);
+            const frontMaterial = new THREE.MeshLambertMaterial({ 
+                map: cardTexture,
+                transparent: true,
+                opacity: 0.95
+            });
+            const frontMesh = new THREE.Mesh(frontGeometry, frontMaterial);
+            frontMesh.position.z = thickness / 2;
+            card.add(frontMesh);
+            
+            // Back face (solid color)
+            const backMaterial = new THREE.MeshLambertMaterial({ 
+                color: 0x2c3e50,
+                transparent: true,
+                opacity: 0.95
+            });
+            const backMesh = new THREE.Mesh(frontGeometry, backMaterial);
+            backMesh.position.z = -thickness / 2;
+            backMesh.rotation.y = Math.PI;
+            card.add(backMesh);
+            
+            // Add edges for realism
+            const edgeGeometry = new THREE.BoxGeometry(width + 0.02, height + 0.02, thickness + 0.02);
+            const edgeMaterial = new THREE.MeshLambertMaterial({ 
+                color: 0x1a1a1a,
+                transparent: true,
+                opacity: 0.3
+            });
+            const edgeMesh = new THREE.Mesh(edgeGeometry, edgeMaterial);
+            card.add(edgeMesh);
+            
+            // Fix orientation - rotate to be right-side up
+            card.rotation.x = 0;
+            card.rotation.y = 0;
+            card.rotation.z = 0;
+            
+            scene.add(card);
+        }
+
+        // Download GLB
+        document.getElementById('downloadGLB').addEventListener('click', function() {
+            if (!card) return;
+            
+            exporter.parse(scene, function (gltf) {
+                const glbData = new Uint8Array(gltf);
+                const blob = new Blob([glbData], { type: 'model/gltf-binary' });
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = 'business-card.glb';
+                link.click();
+                URL.revokeObjectURL(url);
+            }, { binary: true });
+        });
+
+        // Initialize
+        init();
+    </script>
+</body>
+</html>
