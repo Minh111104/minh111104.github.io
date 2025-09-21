@@ -24,6 +24,7 @@ This portfolio is designed to highlight my expertise in full-stack web developme
 - **Interactive Contact Form**: Users can send messages directly to my email.
 - **Project Showcase**: A gallery of my projects with descriptions and links to live demos or repositories.
 - **Resume Download**: Visitors can download my resume directly from the website.
+- **AI Chatbot**
 
 ## Technologies Used
 
