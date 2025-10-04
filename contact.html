@@ -310,5 +310,19 @@
                 }
             });
         </script>
+        
+        <!-- Chat Widget -->
+        <iframe 
+        src="https://chatbot-widget-opal.vercel.app" 
+        style="position: fixed; bottom: 0; right: 0; width: 450px; height: 700px; border: none; background: transparent; z-index: 9999; pointer-events: none;"
+        allowtransparency="true"
+        allow="clipboard-write"
+        frameborder="0">
+        </iframe>
+
+        <script>
+        // Allow pointer events only on the iframe content
+        document.querySelector('iframe').style.pointerEvents = 'auto';
+        </script>
     </body>
 </html>
