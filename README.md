@@ -24,36 +24,68 @@ This portfolio is designed to highlight my expertise in full-stack web developme
 - **Interactive Contact Form**: Users can send messages directly to my email.
 - **Project Showcase**: A gallery of my projects with descriptions and links to live demos or repositories.
 - **Resume Download**: Visitors can download my resume directly from the website.
-- **AI Chatbot**
+- **AI Chatbot Widget**: Interactive chatbot embedded on all pages for instant visitor engagement and support.
+- **AR Experience**: QR code and AR profile card feature for immersive interaction.
+- **Visitor Analytics**: Real-time visitor map showing global reach of the portfolio.
+
+## Chatbot Widget
+
+The portfolio features an integrated AI chatbot widget that provides instant support and engagement for visitors.
+
+### Widget Features
+
+- **Compact Design**: 100px × 100px minimalist widget positioned at bottom-right corner
+- **Transparent Background**: Seamlessly integrates with the website design
+- **Cross-Page Availability**: Accessible on all pages (Home, Projects, Resume, Contact, AR)
+- **High Z-Index**: Always visible above other content (z-index: 9999)
+- **Responsive**: Works across all devices and screen sizes
+
+### Technical Implementation
+
+- **Type**: Embedded iframe widget
+- **Source**: `https://chatbot-widget-opal.vercel.app`
+- **Position**: Fixed positioning for persistent visibility
+- **Transparency**: `allowtransparency="true"` for seamless integration
+
+### Purpose
+
+The chatbot serves as a 24/7 virtual assistant, helping visitors:
+
+- Get quick answers about my projects and experience
+- Navigate the portfolio more effectively
+- Engage in interactive conversations about my skills
+- Receive instant responses without waiting for email replies
 
 ## Technologies Used
 
-### Frontend:
+### Frontend
 
 - HTML5
 - CSS3
 - Bootstrap 5
 - JavaScript
 
-### Backend:
+### Backend
 
 - Node.js
 - Express.js
 - Nodemailer (for email functionality)
 
-### Other Tools:
+### Other Tools
 
 - Google Drive (for hosting the resume)
 - Heroku (for backend deployment)
+- AI Chatbot Widget (embedded iframe for visitor engagement)
+- Vercel (chatbot hosting platform)
 
 ## Setup Instructions
 
-### Prerequisites:
+### Prerequisites
 
 - [Node.js](https://nodejs.org/) installed on your machine.
 - [Git](https://git-scm.com/) installed.
 
-### Steps:
+### Steps
 
 1. Clone the repository:
 
@@ -93,8 +125,8 @@ This portfolio is designed to highlight my expertise in full-stack web developme
 
 Feel free to reach out to me for collaboration or inquiries:
 
-- **Email**: your-email@gmail.com
-- **LinkedIn**: Your LinkedIn Profile
-- **GitHub**: Your GitHub Profile
+- **Email**: <quangminh111104@gmail.com>
+- **LinkedIn**: [minhnguyen1111](https://www.linkedin.com/in/minhnguyen1111/)
+- **GitHub**: [Minh111104](https://github.com/Minh111104)
 
 Thank you for visiting my portfolio!
