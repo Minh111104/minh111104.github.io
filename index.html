@@ -31,6 +31,13 @@
                             <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
                             <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                         </ul>
+                        <!-- MUI Style Dark Mode Switch -->
+                        <div class="theme-switch-wrapper">
+                            <label class="theme-switch" for="theme-switch">
+                                <input type="checkbox" id="theme-switch" />
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
                     </div>
                 </div>
             </nav>
@@ -45,28 +52,36 @@
                                 <div class="fs-3 fw-light text-muted">Passionate Software Engineer</div>
                                 <h1 class="display-3 fw-bolder mb-3"><span class="text-gradient d-inline">Building the Future</span></h1>
                                 <p class="lead text-muted mb-4">Computer Science student at BGSU with expertise in AI research, web development, and cloud technologies. Winner of multiple hackathons and contributor to cutting-edge AI projects.</p>
-                                <div class="row g-3 mb-4">
+                                <div class="row g-3 mb-4" id="stats-section">
                                     <div class="col-6 col-md-3">
-                                        <div class="text-center p-3 bg-light rounded-3">
-                                            <div class="h4 text-primary mb-1">3</div>
+                                        <div class="text-center p-3 bg-light rounded-3 stat-card">
+                                            <div class="h4 text-primary mb-1">
+                                                <span class="counter" data-target="3" data-suffix="">0</span>
+                                            </div>
                                             <div class="small text-muted">Hackathon Wins</div>
                                         </div>
                                     </div>
                                     <div class="col-6 col-md-3">
-                                        <div class="text-center p-3 bg-light rounded-3">
-                                            <div class="h4 text-primary mb-1">40+</div>
+                                        <div class="text-center p-3 bg-light rounded-3 stat-card">
+                                            <div class="h4 text-primary mb-1">
+                                                <span class="counter" data-target="40" data-suffix="+">0</span>
+                                            </div>
                                             <div class="small text-muted">Projects Built</div>
                                         </div>
                                     </div>
                                     <div class="col-6 col-md-3">
-                                        <div class="text-center p-3 bg-light rounded-3">
-                                            <div class="h4 text-primary mb-1">2+</div>
+                                        <div class="text-center p-3 bg-light rounded-3 stat-card">
+                                            <div class="h4 text-primary mb-1">
+                                                <span class="counter" data-target="2" data-suffix="+">0</span>
+                                            </div>
                                             <div class="small text-muted">Years of Experience</div>
                                         </div>
                                     </div>
                                     <div class="col-6 col-md-3">
-                                        <div class="text-center p-3 bg-light rounded-3">
-                                            <div class="h4 text-primary mb-1">100%</div>
+                                        <div class="text-center p-3 bg-light rounded-3 stat-card">
+                                            <div class="h4 text-primary mb-1">
+                                                <span class="counter" data-target="100" data-suffix="%">0</span>
+                                            </div>
                                             <div class="small text-muted">Commitment to Work</div>
                                         </div>
                                     </div>
@@ -322,6 +337,10 @@
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Dark Mode Toggle -->
+        <script src="js/darkmode.js"></script>
+        <!-- Animated Counter -->
+        <script src="js/counter.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
         <script>
