@@ -300,9 +300,23 @@
 [data-theme="dark"] .experience-card,
 [data-theme="dark"] .skill-card,
 [data-theme="dark"] .language-card {
-  background-color: var(--card-bg) !important;
-  border-color: var(--border-color) !important;
+  background-color: transparent !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
   color: var(--text-primary) !important;
+  box-shadow: none !important;
+}
+
+[data-theme="dark"] .timeline-content {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .experience-card .card-body {
+  background: transparent;
+}
+
+[data-theme="dark"] .experience-header {
+  background: inherit;
+  border: none;
 }
 
 /* Borders and Dividers */
@@ -12153,6 +12167,23 @@ html {
   -webkit-text-fill-color: transparent;
 }
 
+.typewriter-caret {
+  display: inline-block;
+  width: 0.12em;
+  height: 1em;
+  margin-left: 0.15em;
+  background: var(--bs-primary, #1e30f3);
+  animation: blink 1s steps(1) infinite;
+  vertical-align: middle;
+  border-radius: 1px;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
 .rounded-4 {
   border-radius: 1rem !important;
 }
@@ -12584,4 +12615,9 @@ html {
 
 .skill-card:nth-child(6) .skill-bg {
     background: linear-gradient(45deg, #dc3545, #1e30f3);
+}
+.hero-headline {
+  font-size: clamp(2.4rem, 2.6vw + 1.6rem, 3.2rem);
+  line-height: 1.1;
+  max-width: 18ch;
 }
