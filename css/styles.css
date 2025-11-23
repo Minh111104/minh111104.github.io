@@ -569,6 +569,7 @@ input:checked + .slider:before {
 .project-card-modern {
   transition: all 0.3s ease;
   border-radius: 16px;
+  position: relative;
 }
 
 .project-card-modern:hover {
@@ -577,6 +578,7 @@ input:checked + .slider:before {
 }
 
 .project-image-wrapper {
+  position: relative;
   overflow: hidden;
   border-radius: 16px 16px 0 0;
 }
@@ -602,6 +604,76 @@ input:checked + .slider:before {
 
 .text-primary {
   color: #1e30f3 !important;
+}
+
+/* Awarded Projects */
+.award-winner {
+  background: linear-gradient(var(--card-bg, #ffffff), var(--card-bg, #ffffff)) padding-box,
+    linear-gradient(135deg, #ffd54f, #ff9100) border-box;
+  border: 2px solid transparent !important;
+  box-shadow: 0 16px 32px rgba(255, 145, 0, 0.2);
+}
+
+.award-winner:hover {
+  box-shadow: 0 24px 48px rgba(255, 145, 0, 0.28) !important;
+}
+
+.award-flag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.4rem 0.85rem;
+  background: linear-gradient(135deg, #fff3cd, #ffd54f);
+  color: #3b2a00;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+  border-radius: 999px;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+}
+
+.award-badge {
+  background: linear-gradient(135deg, #ffd54f, #ff8a00);
+  color: #3b2a00 !important;
+  border: none !important;
+  box-shadow: 0 8px 18px rgba(255, 138, 0, 0.3);
+  font-weight: 700;
+  animation: glow-pulse 2.6s ease-in-out infinite;
+}
+
+.award-badge .bi {
+  color: #3b2a00;
+}
+
+@keyframes glow-pulse {
+  0% {
+    box-shadow: 0 8px 18px rgba(255, 138, 0, 0.32);
+  }
+  50% {
+    box-shadow: 0 12px 26px rgba(255, 138, 0, 0.52);
+  }
+  100% {
+    box-shadow: 0 8px 18px rgba(255, 138, 0, 0.32);
+  }
+}
+
+[data-theme="dark"] .award-winner {
+  background: linear-gradient(var(--card-bg, #242424), var(--card-bg, #242424)) padding-box,
+    linear-gradient(135deg, #ffb74d, #ff9100) border-box;
+  box-shadow: 0 16px 32px rgba(255, 145, 0, 0.22);
+}
+
+[data-theme="dark"] .award-flag {
+  background: linear-gradient(135deg, #3a2c05, #5a3b00);
+  color: #ffe6b0;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .award-badge {
+  color: #1b1000 !important;
 }
  
 /*!
