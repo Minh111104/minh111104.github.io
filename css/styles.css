@@ -877,9 +877,9 @@ input:checked + .slider:before {
 }
 
 [data-theme="dark"] .award-winner {
-  background: linear-gradient(var(--card-bg, #242424), var(--card-bg, #242424)) padding-box,
-    linear-gradient(135deg, #ffb74d, #ff9100) border-box;
-  box-shadow: 0 16px 32px rgba(255, 145, 0, 0.22);
+  background: var(--card-bg, #242424);
+  border: 0 !important;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3);
 }
 
 [data-theme="dark"] .award-flag {
