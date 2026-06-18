@@ -1,0 +1,728 @@
+/* ==========================================================================
+   Spotify-Inspired Theme Override
+   Loaded after css/styles.css (Bootstrap + legacy custom styles).
+   Recolors the existing Bootstrap component system into a permanent
+   near-black, green-accented, pill-shaped UI per brand_assets/DESIGN.md.
+   ========================================================================== */
+
+:root {
+  /* Bootstrap variable overrides — cascades into every rgba(var(--bs-*-rgb))
+     utility (text/bg/border opacity classes, focus rings, etc.) */
+  --bs-font-sans-serif: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --bs-body-bg: #121212;
+  --bs-body-color: #ffffff;
+  --bs-border-color: #2a2a2a;
+  --bs-link-color: #1ed760;
+  --bs-link-hover-color: #3be37a;
+
+  --bs-primary: #1ed760;
+  --bs-primary-rgb: 30, 215, 96;
+  --bs-secondary: #b3b3b3;
+  --bs-secondary-rgb: 179, 179, 179;
+  --bs-success: #1ed760;
+  --bs-success-rgb: 30, 215, 96;
+  --bs-info: #539df5;
+  --bs-info-rgb: 83, 157, 245;
+  --bs-warning: #ffa42b;
+  --bs-warning-rgb: 255, 164, 43;
+  --bs-danger: #f3727f;
+  --bs-danger-rgb: 243, 114, 127;
+
+  /* Spotify surface tokens */
+  --sp-bg: #121212;
+  --sp-surface: #181818;
+  --sp-elevated: #1f1f1f;
+  --sp-card: #181818;
+  --sp-card-alt: #232323;
+  --sp-text: #ffffff;
+  --sp-text-bright: #fdfdfd;
+  --sp-text-silver: #b3b3b3;
+  --sp-border: #2a2a2a;
+  --sp-green: #1ed760;
+  --sp-green-border: #1db954;
+  --sp-red: #f3727f;
+  --sp-orange: #ffa42b;
+  --sp-blue: #539df5;
+  --sp-shadow-heavy: rgba(0, 0, 0, 0.5) 0px 8px 24px;
+  --sp-shadow-medium: rgba(0, 0, 0, 0.3) 0px 8px 8px;
+}
+
+/* === Base ============================================================== */
+
+html,
+body {
+  background-color: var(--sp-bg) !important;
+  color: var(--sp-text);
+}
+
+body {
+  font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-weight: 700;
+  letter-spacing: normal;
+  color: var(--sp-text);
+}
+
+p, span, div, li, label {
+  color: inherit;
+}
+
+.text-muted {
+  color: var(--sp-text-silver) !important;
+}
+
+.lead {
+  color: var(--sp-text-silver);
+}
+
+a:not(.btn):not(.nav-link) {
+  color: var(--sp-green);
+  text-decoration: none;
+}
+
+a:not(.btn):not(.nav-link):hover {
+  color: #3be37a;
+  text-decoration: underline;
+}
+
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible,
+.nav-link:focus-visible,
+.form-control:focus-visible,
+.form-select:focus-visible {
+  outline: 2px solid var(--sp-green);
+  outline-offset: 2px;
+}
+
+hr {
+  border-color: var(--sp-border);
+  opacity: 1;
+}
+
+/* === Surfaces / utility classes ======================================== */
+
+.bg-light,
+.bg-white {
+  background-color: var(--sp-surface) !important;
+}
+
+.bg-primary {
+  background-color: var(--sp-green) !important;
+}
+
+.text-primary {
+  color: var(--sp-green) !important;
+}
+
+.text-secondary {
+  color: var(--sp-text-silver) !important;
+}
+
+.text-dark {
+  color: var(--sp-text) !important;
+}
+
+.border,
+.border-top,
+.border-bottom,
+.border-start,
+.border-end {
+  border-color: var(--sp-border) !important;
+}
+
+.shadow-sm {
+  box-shadow: var(--sp-shadow-medium) !important;
+}
+
+.shadow,
+.shadow-lg {
+  box-shadow: var(--sp-shadow-heavy) !important;
+}
+
+/* Replace the old blue/pink brand gradient with solid Spotify treatments.
+   Green is reserved for functional accents, so large surfaces go achromatic. */
+.bg-gradient-primary-to-secondary {
+  background: var(--sp-elevated);
+}
+
+.text-gradient {
+  background: none;
+  -webkit-text-fill-color: unset;
+  color: var(--sp-green) !important;
+}
+
+.hero-headline .text-gradient {
+  color: var(--sp-text-bright) !important;
+}
+
+/* === Navigation ========================================================= */
+
+.navbar {
+  background-color: var(--sp-bg) !important;
+  border-bottom: 1px solid var(--sp-border);
+}
+
+.navbar-brand span {
+  color: var(--sp-text) !important;
+  font-weight: 700;
+}
+
+.navbar-nav .nav-link {
+  color: var(--sp-text-silver) !important;
+  font-weight: 400;
+  padding: 0.5rem 1rem;
+  transition: color 0.2s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--sp-text) !important;
+}
+
+.navbar-nav .nav-link.active {
+  color: var(--sp-text) !important;
+  font-weight: 700;
+}
+
+.navbar-toggler {
+  border-color: var(--sp-border);
+}
+
+.navbar-toggler-icon {
+  filter: invert(1);
+}
+
+/* Theme switch removed from markup — hide defensively if cached HTML lingers */
+.theme-switch-wrapper {
+  display: none !important;
+}
+
+/* === Buttons ============================================================ */
+/* Spotify system: pill radius, uppercase, wide tracking */
+
+.btn {
+  border-radius: 9999px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  font-size: 0.875rem;
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.btn:hover {
+  transform: scale(1.03);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background-color: var(--sp-green) !important;
+  border-color: var(--sp-green) !important;
+  color: #121212 !important;
+}
+
+.btn-primary:hover {
+  background-color: #3be37a !important;
+  border-color: #3be37a !important;
+}
+
+.btn-outline-primary {
+  color: var(--sp-text) !important;
+  border-color: #7c7c7c !important;
+  background-color: transparent !important;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--sp-elevated) !important;
+  border-color: var(--sp-text) !important;
+  color: var(--sp-text) !important;
+}
+
+.btn-outline-dark,
+.btn-outline-secondary {
+  color: var(--sp-text) !important;
+  border-color: #7c7c7c !important;
+  background-color: transparent !important;
+}
+
+.btn-outline-dark:hover,
+.btn-outline-secondary:hover {
+  background-color: var(--sp-elevated) !important;
+  border-color: var(--sp-text) !important;
+  color: var(--sp-text) !important;
+}
+
+.btn-light,
+.btn-outline-light {
+  background-color: var(--sp-elevated) !important;
+  border-color: var(--sp-elevated) !important;
+  color: var(--sp-text) !important;
+}
+
+.btn-outline-light {
+  background-color: transparent !important;
+  border-color: #7c7c7c !important;
+}
+
+.btn-light:hover,
+.btn-outline-light:hover {
+  background-color: #2a2a2a !important;
+  border-color: var(--sp-text) !important;
+  color: var(--sp-text) !important;
+}
+
+.btn-outline-success {
+  color: var(--sp-green) !important;
+  border-color: var(--sp-green-border) !important;
+  background-color: transparent !important;
+}
+
+.btn-outline-success:hover {
+  background-color: rgba(30, 215, 96, 0.12) !important;
+  color: var(--sp-green) !important;
+}
+
+.btn-outline-info {
+  color: var(--sp-blue) !important;
+  border-color: var(--sp-blue) !important;
+  background-color: transparent !important;
+}
+
+.btn-outline-info:hover {
+  background-color: rgba(83, 157, 245, 0.12) !important;
+  color: var(--sp-blue) !important;
+}
+
+/* === Badges / tags ======================================================= */
+
+.badge {
+  border-radius: 9999px;
+  font-weight: 600;
+}
+
+.bg-primary-soft {
+  background-color: rgba(30, 215, 96, 0.12) !important;
+}
+
+.bg-primary-soft.text-primary {
+  color: var(--sp-green) !important;
+}
+
+.tech-stack .badge,
+.tech-badges .badge {
+  background-color: var(--sp-elevated) !important;
+  color: var(--sp-text-silver) !important;
+  border: none;
+  font-weight: 500;
+}
+
+.badge.bg-light {
+  background-color: var(--sp-elevated) !important;
+  color: var(--sp-text-silver) !important;
+  border: none !important;
+}
+
+/* === Cards =============================================================== */
+
+.card {
+  background-color: var(--sp-card);
+  border: none;
+  border-radius: 8px;
+  color: var(--sp-text);
+}
+
+.card-body,
+.card-title,
+.card-text {
+  color: inherit;
+}
+
+.card p,
+.card-body p {
+  color: var(--sp-text-silver) !important;
+}
+
+.stat-card {
+  background-color: var(--sp-card) !important;
+}
+
+.stat-card::before {
+  background: linear-gradient(90deg, transparent, rgba(30, 215, 96, 0.12), transparent);
+}
+
+.stat-card:hover {
+  box-shadow: var(--sp-shadow-medium);
+}
+
+/* === Project cards ======================================================= */
+
+.project-card-modern {
+  background-color: var(--sp-card);
+  border: none;
+}
+
+.project-card-modern:hover {
+  box-shadow: var(--sp-shadow-heavy) !important;
+}
+
+.project-card-modern .card-title,
+.project-card-modern h3,
+.project-card-modern h5,
+.project-card-modern h6 {
+  color: var(--sp-text) !important;
+}
+
+.project-card-modern p {
+  color: var(--sp-text-silver);
+}
+
+.award-winner {
+  background: var(--sp-card);
+  border: none !important;
+  box-shadow: var(--sp-shadow-medium);
+}
+
+.award-winner:hover {
+  box-shadow: var(--sp-shadow-heavy) !important;
+}
+
+.award-flag {
+  background: var(--sp-elevated);
+  color: var(--sp-orange);
+  box-shadow: var(--sp-shadow-medium);
+}
+
+.award-badge {
+  background: var(--sp-elevated) !important;
+  color: var(--sp-orange) !important;
+  border: 1px solid var(--sp-orange) !important;
+  box-shadow: none;
+  animation: none;
+}
+
+.award-badge .bi {
+  color: var(--sp-orange);
+}
+
+/* === Feature icon chips ================================================== */
+
+.feature {
+  background: var(--sp-elevated) !important;
+  color: var(--sp-green) !important;
+  border-radius: 8px;
+}
+
+/* === Hero profile graphic ================================================ */
+
+.profile {
+  background: var(--sp-elevated) !important;
+}
+
+.profile .dots-1 svg,
+.profile .dots-3 svg {
+  fill: var(--sp-text-silver);
+}
+
+.profile .dots-2 svg,
+.profile .dots-4 svg {
+  fill: var(--sp-green);
+}
+
+.typewriter-caret {
+  background: var(--sp-green);
+}
+
+/* === Forms ================================================================ */
+
+.form-control,
+.form-select,
+textarea {
+  background-color: var(--sp-elevated) !important;
+  color: var(--sp-text) !important;
+  border: 1px solid var(--sp-border) !important;
+  border-radius: 8px;
+}
+
+.form-control::placeholder,
+textarea::placeholder {
+  color: var(--sp-text-silver);
+  opacity: 0.8;
+}
+
+.form-control:focus,
+.form-select:focus,
+textarea:focus {
+  background-color: var(--sp-elevated) !important;
+  color: var(--sp-text) !important;
+  border-color: var(--sp-green) !important;
+  box-shadow: 0 0 0 0.2rem rgba(30, 215, 96, 0.25) !important;
+}
+
+.form-floating > label {
+  color: var(--sp-text-silver);
+}
+
+.form-label {
+  color: var(--sp-text);
+}
+
+/* === Footer =============================================================== */
+
+footer {
+  background-color: var(--sp-bg) !important;
+  color: var(--sp-text-silver);
+  border-top: 1px solid var(--sp-border);
+}
+
+footer a.small {
+  color: var(--sp-text-silver);
+}
+
+footer a.small:hover {
+  color: var(--sp-text);
+}
+
+/* === Alerts (contact form feedback) ====================================== */
+
+.alert {
+  background-color: var(--sp-elevated);
+  border: 1px solid var(--sp-border);
+  color: var(--sp-text);
+  border-radius: 8px;
+}
+
+.alert-success {
+  border-color: var(--sp-green);
+  color: var(--sp-green);
+}
+
+.alert-danger {
+  border-color: var(--sp-red);
+  color: var(--sp-red);
+}
+
+.alert-warning {
+  border-color: var(--sp-orange);
+  color: var(--sp-orange);
+}
+
+/* === Contact page ========================================================= */
+
+.contact-hero {
+  background: radial-gradient(circle at 50% 0%, rgba(30, 215, 96, 0.08), transparent 45%) !important;
+}
+
+.contact-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.5rem 1.1rem;
+  background: var(--sp-elevated);
+  border: 1px solid var(--sp-border);
+  color: var(--sp-green);
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.contact-panel {
+  background: var(--sp-surface);
+  border: 1px solid var(--sp-border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.contact-panel-form {
+  padding: 2.5rem;
+}
+
+.contact-panel-info {
+  background: var(--sp-elevated);
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-info-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--sp-card);
+  border: 1px solid var(--sp-border);
+  border-radius: 8px;
+  padding: 1.1rem 1.25rem;
+  text-decoration: none;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.contact-info-card:hover {
+  border-color: var(--sp-green-border);
+  transform: translateX(2px);
+}
+
+.contact-info-icon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: rgba(30, 215, 96, 0.12);
+  color: var(--sp-green);
+  font-size: 1.1rem;
+}
+
+.contact-info-title {
+  color: var(--sp-text);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.contact-info-detail {
+  color: var(--sp-text-silver);
+  font-size: 0.85rem;
+}
+
+/* === Resume: experience card grid ======================================= */
+
+.exp-card {
+  background-color: var(--sp-card);
+  border: 1px solid var(--sp-border);
+  border-radius: 8px;
+  padding: 1.75rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.exp-card:hover {
+  border-color: var(--sp-green-border);
+  box-shadow: var(--sp-shadow-medium);
+}
+
+.exp-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.exp-date {
+  color: var(--sp-green);
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.exp-company {
+  color: var(--sp-text-silver);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: right;
+}
+
+.exp-role {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.exp-role-icon {
+  color: var(--sp-green);
+  font-size: 1rem;
+}
+
+.exp-location {
+  color: var(--sp-text-silver);
+  font-size: 0.85rem;
+  margin-bottom: 0.9rem;
+}
+
+.exp-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.exp-tag {
+  background: var(--sp-elevated);
+  color: var(--sp-text-silver);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.3rem 0.75rem;
+  border-radius: 9999px;
+}
+
+.exp-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.exp-list li {
+  position: relative;
+  padding-left: 1.1rem;
+  color: var(--sp-text-silver);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.exp-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--sp-green);
+}
+
+.exp-list strong {
+  color: var(--sp-text);
+}
+
+.highlight {
+  color: var(--sp-green) !important;
+  background: rgba(30, 215, 96, 0.12);
+  font-weight: 600;
+  padding: 0.05rem 0.3rem;
+  border-radius: 0.25rem;
+}
+
+/* Education / skills cards reuse .card + .bg-light, already covered above */
+
+.badge.border {
+  border-color: var(--sp-border) !important;
+  background-color: var(--sp-elevated) !important;
+  color: var(--sp-text-silver) !important;
+}
+
+/* === Motion: respect reduced-motion preference =========================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

@@ -5,36 +5,40 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <title>AR Profile Card • Minh</title>
         <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/spotify-theme.css" rel="stylesheet" />
         <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
         <style>
-            body { background: #0d1117; color: #e6edf3; }
+            body { background: #121212; color: #ffffff; font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif; }
             .container-narrow { max-width: 960px; margin: 0 auto; padding: 24px; }
             .hero { text-align: center; margin-top: 24px; margin-bottom: 16px; }
-            .hint { color: #9aa4b2; }
-            .mv-wrapper { position: relative; border-radius: 16px; overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,0.4); background: radial-gradient(1200px 600px at 50% -10%, #1f6feb22, transparent); }
-            .mv { width: 100%; height: 75vh; min-height: 420px; background: linear-gradient(180deg, rgba(31,111,235,0.06) 0%, rgba(13,17,23,0.8) 100%); }
+            .hint { color: #b3b3b3; }
+            .mv-wrapper { position: relative; border-radius: 16px; overflow: hidden; box-shadow: rgba(0, 0, 0, 0.5) 0px 8px 24px; background: radial-gradient(1200px 600px at 50% -10%, #1ed76022, transparent); }
+            .mv { width: 100%; height: 75vh; min-height: 420px; background: linear-gradient(180deg, rgba(30,215,96,0.06) 0%, rgba(18,18,18,0.8) 100%); }
             .toolbar { display: flex; gap: 8px; justify-content: center; align-items: center; margin-top: 12px; flex-wrap: wrap; }
-            .badge-pill { background: #161b22; border: 1px solid #30363d; border-radius: 999px; padding: 6px 12px; font-size: 12px; color: #9aa4b2; }
-            a.btn-back { color: #58a6ff; text-decoration: none; }
+            .badge-pill { background: #1f1f1f; border: 1px solid #2a2a2a; border-radius: 999px; padding: 6px 12px; font-size: 12px; color: #b3b3b3; }
+            a.btn-back { color: #1ed760; text-decoration: none; }
             a.btn-back:hover { text-decoration: underline; }
             
             /* Hotspot Styles */
-            .hotspot { 
-                display: block; 
-                width: 20px; 
-                height: 20px; 
-                border-radius: 50%; 
-                background: #007bff; 
-                border: 2px solid #fff; 
-                cursor: pointer; 
+            .hotspot {
+                display: block;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background: #1ed760;
+                border: 2px solid #121212;
+                cursor: pointer;
                 box-shadow: 0 2px 10px rgba(0,0,0,0.3);
                 transition: all 0.3s ease;
             }
-            .hotspot:hover { 
-                background: #0056b3; 
-                transform: scale(1.2); 
+            .hotspot:hover {
+                background: #3be37a;
+                transform: scale(1.2);
             }
             .hotspot-content { 
                 position: absolute; 
@@ -112,7 +116,7 @@
                 color: white;
                 padding: 8px 12px;
                 border-radius: 8px;
-                border: 1px solid #007bff;
+                border: 1px solid #1ed760;
                 box-shadow: 0 4px 12px rgba(0,0,0,0.5);
                 backdrop-filter: blur(10px);
             }
@@ -174,7 +178,7 @@
                     touch-action="pan-y"
                     style="transform: rotateX(180deg);"
                 >
-                    <button slot="ar-button" style="position: absolute; left: 50%; transform: translateX(-50%); bottom: 16px; background:#238636; color:#fff; border:0; padding:10px 16px; border-radius:999px; box-shadow:0 8px 24px rgba(0,0,0,.25);">
+                    <button slot="ar-button" style="position: absolute; left: 50%; transform: translateX(-50%); bottom: 16px; background:#1ed760; color:#121212; font-weight:700; text-transform:uppercase; letter-spacing:1.4px; font-size:0.8rem; border:0; padding:10px 18px; border-radius:999px; box-shadow:0 8px 24px rgba(0,0,0,.25);">
                         <i class="bi bi-camera"></i> View in your space
                     </button>
                     
