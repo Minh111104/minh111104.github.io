@@ -11,11 +11,13 @@
         <!-- Custom Google font-->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <!-- Spotify-inspired theme override-->
+        <link href="css/spotify-theme.css" rel="stylesheet" />
     </head>
     <body class="d-flex flex-column h-100 bg-light">
         <main class="flex-shrink-0">
@@ -31,13 +33,6 @@
                             <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
                             <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                         </ul>
-                        <!-- MUI Style Dark Mode Switch -->
-                        <div class="theme-switch-wrapper">
-                            <label class="theme-switch" for="theme-switch">
-                                <input type="checkbox" id="theme-switch" />
-                                <span class="slider round"></span>
-                            </label>
-                        </div>
                     </div>
                 </div>
             </nav>
@@ -59,429 +54,153 @@
                                 </a>
                             </div>
                             
-                            <!-- Timeline Container -->
-                            <div class="timeline-container position-relative">
-                                <!-- Timeline Line -->
-                                <div class="timeline-line position-absolute" style="width: 2px; height: 100%; background: linear-gradient(180deg, var(--bs-primary) 0%, var(--bs-secondary) 100%); left: 120px; top: 0;"></div>
-                                
+                            <!-- Experience grid (2 columns) -->
+                            <div class="row g-4 exp-grid">
                                 <!-- Experience Card 1-->
-                                <div class="timeline-item mb-5 position-relative">
-                                    <div class="timeline-dot position-absolute" style="width: 16px; height: 16px; background: var(--bs-warning); border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 3px var(--bs-warning); left: 112px; top: 20px; z-index: 10;"></div>
-                                    <div class="timeline-date position-absolute" style="left: 0; top: 15px; width: 100px; text-align: right;">
-                                        <div class="text-warning fw-bold small">May 2024 - Apr. 2026</div>
-                                    </div>
-                                    <div class="timeline-content ms-5" style="margin-left: 140px !important;">
-                                        <div class="card shadow border-0 rounded-4 experience-card">
-                                            <div class="card-body p-5">
-                                                <div class="row align-items-start gx-5">
-                                                    <div class="col-lg-5 mb-4 mb-lg-0">
-                                                        <div class="experience-header bg-gradient-warning-to-danger text-white p-4 rounded-4 position-relative overflow-hidden">
-                                                            <div class="experience-icon position-absolute top-0 end-0 opacity-25">
-                                                                <i class="bi bi-display fs-1"></i>
-                                                            </div>
-                                                            <div class="position-relative z-2">
-                                                                <h5 class="mb-2">Classroom Technology Support</h5>
-                                                                <div class="small opacity-90">ITS, Bowling Green State University</div>
-                                                                <div class="small opacity-90">Bowling Green, OH</div>
-                                                                <div class="mt-3">
-                                                                    <span class="badge bg-white bg-opacity-25 text-white me-1">IT Support</span>
-                                                                    <span class="badge bg-white bg-opacity-25 text-white">DevOps</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-7">
-                                                        <div class="experience-content">
-                                                            <div class="achievement-item mb-3">
-                                                                <div class="achievement-icon me-3">
-                                                                    <i class="bi bi-tools text-primary"></i>
-                                                                </div>
-                                                                <div>
-                                                                    <strong>Partnered with 8 AV technicians</strong> to deliver rapid response troubleshooting, reducing classroom technology downtime by <span class="highlight">30%</span> and supporting <span class="highlight">50+ classrooms</span> across campus
-                                                                </div>
-                                                            </div>
-                                                            <div class="achievement-item mb-3">
-                                                                <div class="achievement-icon me-3">
-                                                                    <i class="bi bi-laptop text-secondary"></i>
-                                                                </div>
-                                                                <div>
-                                                                    <strong>Performed system-level diagnostics</strong> and updates in a mixed <span class="highlight">Windows/macOS environment</span>, ensuring operational reliability for <span class="highlight">100+ devices</span> used by faculty and students across <span class="highlight">10+ departments</span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="achievement-item">
-                                                                <div class="achievement-icon me-3">
-                                                                    <i class="bi bi-arrow-repeat text-success"></i>
-                                                                </div>
-                                                                <div>
-                                                                    <strong>Collaborated with 4 system administrators</strong> to standardize software images, automate deployment procedures, and implement <span class="highlight">DevOps practices</span> including <span class="highlight">CI/CD pipelines</span> to ensure consistent, reliable software rollouts and real-time remote support
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                <div class="col-lg-6">
+                                    <div class="exp-card h-100">
+                                        <div class="exp-card-head">
+                                            <span class="exp-date">May 2024 – Apr. 2026</span>
+                                            <span class="exp-company">ITS, BGSU</span>
                                         </div>
+                                        <h3 class="exp-role"><i class="bi bi-display exp-role-icon"></i>Classroom Technology Support</h3>
+                                        <div class="exp-location">Bowling Green, OH</div>
+                                        <div class="exp-tags">
+                                            <span class="exp-tag">IT Support</span>
+                                            <span class="exp-tag">DevOps</span>
+                                        </div>
+                                        <ul class="exp-list">
+                                            <li><strong>Partnered with 8 AV technicians</strong> to deliver rapid response troubleshooting, reducing classroom technology downtime by <span class="highlight">30%</span> and supporting <span class="highlight">50+ classrooms</span> across campus</li>
+                                            <li><strong>Performed system-level diagnostics</strong> and updates in a mixed <span class="highlight">Windows/macOS environment</span>, ensuring operational reliability for <span class="highlight">100+ devices</span> used by faculty and students across <span class="highlight">10+ departments</span></li>
+                                            <li><strong>Collaborated with 4 system administrators</strong> to standardize software images, automate deployment procedures, and implement <span class="highlight">DevOps practices</span> including <span class="highlight">CI/CD pipelines</span> to ensure consistent, reliable software rollouts and real-time remote support</li>
+                                        </ul>
                                     </div>
                                 </div>
 
                                 <!-- Experience Card 2-->
-                                <div class="timeline-item mb-5 position-relative">
-                                    <div class="timeline-dot position-absolute" style="width: 16px; height: 16px; background: var(--bs-primary); border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 3px var(--bs-primary); left: 112px; top: 20px; z-index: 10;"></div>
-                                    <div class="timeline-date position-absolute" style="left: 0; top: 15px; width: 100px; text-align: right;">
-                                        <div class="text-primary fw-bold small">Jun. 2025 - Jul. 2025</div>
-                                    </div>
-                                    <div class="timeline-content ms-5" style="margin-left: 140px !important;">
-                                        <div class="card shadow border-0 rounded-4 experience-card">
-                                            <div class="card-body p-5">
-                                                <div class="row align-items-start gx-5">
-                                                    <div class="col-lg-5 mb-4 mb-lg-0">
-                                                        <div class="experience-header bg-gradient-primary-to-secondary text-white p-4 rounded-4 position-relative overflow-hidden">
-                                                            <div class="experience-icon position-absolute top-0 end-0 opacity-25">
-                                                                <i class="bi bi-cpu fs-1"></i>
-                                                            </div>
-                                                            <div class="position-relative z-2">
-                                                                <h5 class="mb-2">AI-EDGE Researcher</h5>
-                                                                <div class="small opacity-90">Ohio State University</div>
-                                                                <div class="small opacity-90">Remote</div>
-                                                                <div class="mt-3">
-                                                                    <span class="badge bg-white bg-opacity-25 text-white me-1">AI Research</span>
-                                                                    <span class="badge bg-white bg-opacity-25 text-white">Edge Computing</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-7">
-                                                        <div class="experience-content">
-                                                            <div class="achievement-item mb-3">
-                                                                <div class="achievement-icon me-3">
-                                                                    <i class="bi bi-graph-up-arrow text-primary"></i>
-                                                                </div>
-                                                                <div>
-                                                                    <strong>Conducted in-depth analysis</strong> of <span class="highlight">generative AI</span> models, focusing on diffusion and transformer-based architectures for scientific data generation and real-world applications
-                                                                </div>
-                                                            </div>
-                                                            <div class="achievement-item mb-3">
-                                                                <div class="achievement-icon me-3">
-                                                                    <i class="bi bi-file-earmark-text text-secondary"></i>
-                                                                </div>
-                                                                <div>
-                                                                    <strong>Developed and presented</strong> an <span class="highlight">11-page research paper</span> about <span class="highlight">Generative Modeling by Estimating Gradients of the Data Distribution</span>, synthesizing recent academic papers and evaluating model performance metrics
-                                                                </div>
-                                                            </div>
-                                                            <div class="achievement-item">
-                                                                <div class="achievement-icon me-3">
-                                                                    <i class="bi bi-people text-success"></i>
-                                                                </div>
-                                                                <div>
-                                                                    <strong>Engaged in weekly seminars</strong>, faculty mentorship, and interdisciplinary collaboration to explore cutting-edge <span class="highlight">AI research</span> and its deployment in edge computing environments
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                <div class="col-lg-6">
+                                    <div class="exp-card h-100">
+                                        <div class="exp-card-head">
+                                            <span class="exp-date">Jun. 2025 – Jul. 2025</span>
+                                            <span class="exp-company">Ohio State University</span>
                                         </div>
+                                        <h3 class="exp-role"><i class="bi bi-cpu exp-role-icon"></i>AI-EDGE Researcher</h3>
+                                        <div class="exp-location">Remote</div>
+                                        <div class="exp-tags">
+                                            <span class="exp-tag">AI Research</span>
+                                            <span class="exp-tag">Edge Computing</span>
+                                        </div>
+                                        <ul class="exp-list">
+                                            <li><strong>Conducted in-depth analysis</strong> of <span class="highlight">generative AI</span> models, focusing on diffusion and transformer-based architectures for scientific data generation and real-world applications</li>
+                                            <li><strong>Developed and presented</strong> an <span class="highlight">11-page research paper</span> about <span class="highlight">Generative Modeling by Estimating Gradients of the Data Distribution</span>, synthesizing recent academic papers and evaluating model performance metrics</li>
+                                            <li><strong>Engaged in weekly seminars</strong>, faculty mentorship, and interdisciplinary collaboration to explore cutting-edge <span class="highlight">AI research</span> and its deployment in edge computing environments</li>
+                                        </ul>
                                     </div>
                                 </div>
 
                                 <!-- Experience Card 3-->
-                                <div class="timeline-item mb-5 position-relative">
-                                    <div class="timeline-dot position-absolute" style="width: 16px; height: 16px; background: var(--bs-secondary); border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 3px var(--bs-secondary); left: 112px; top: 20px; z-index: 10;"></div>
-                                    <div class="timeline-date position-absolute" style="left: 0; top: 15px; width: 100px; text-align: right;">
-                                        <div class="text-secondary fw-bold small">May 2025 - Aug. 2025</div>
-                                    </div>
-                                    <div class="timeline-content ms-5" style="margin-left: 140px !important;">
-                                        <div class="card shadow border-0 rounded-4 experience-card">
-                                            <div class="card-body p-5">
-                                                <div class="row align-items-start gx-5">
-                                                    <div class="col-lg-5 mb-4 mb-lg-0">
-                                                        <div class="experience-header bg-gradient-secondary-to-primary text-white p-4 rounded-4 position-relative overflow-hidden">
-                                                            <div class="experience-icon position-absolute top-0 end-0 opacity-25">
-                                                                <i class="bi bi-code-slash fs-1"></i>
-                                                            </div>
-                                                            <div class="position-relative z-2">
-                                                                <h5 class="mb-2">AI Software Engineer Intern</h5>
-                                                                <div class="small opacity-90">FPT Software</div>
-                                                                <div class="small opacity-90">Quy Nhon, Vietnam</div>
-                                                                <div class="mt-3">
-                                                                    <span class="badge bg-white bg-opacity-25 text-white me-1">Next.js</span>
-                                                                    <span class="badge bg-white bg-opacity-25 text-white">Python</span>
-                                                                    <span class="badge bg-white bg-opacity-25 text-white">AWS</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-7">
-                                                        <div class="experience-content">
-                                                            <div class="achievement-item mb-3">
-                                                                <div class="achievement-icon me-3">
-                                                                    <i class="bi bi-globe text-primary"></i>
-                                                                </div>
-                                                                <div>
-                                                                    <strong>Designed and deployed</strong> a real-time web crawling pipeline using <span class="highlight">Next.js</span>, <span class="highlight">Python</span>, and <span class="highlight">MongoDB</span>, enabling schedule-based site crawling and processing of <span class="highlight">50+</span> contract listings daily from government procurement portals
-                                                                </div>
-                                                            </div>
-                                                            <div class="achievement-item mb-3">
-                                                                <div class="achievement-icon me-3">
-                                                                    <i class="bi bi-cloud-arrow-up text-secondary"></i>
-                                                                </div>
-                                                                <div>
-                                                                    <strong>Integrated</strong> <span class="highlight">S3</span>, <span class="highlight">DynamoDB</span>, <span class="highlight">SQS</span>, and <span class="highlight">OpenSearch</span> to build scalable <span class="highlight">CI/CD</span>-ready data pipelines, automating file uploads, metadata indexing, and messaging workflows to support <span class="highlight">AI-driven</span> document processing
-                                                                </div>
-                                                            </div>
-                                                            <div class="achievement-item">
-                                                                <div class="achievement-icon me-3">
-                                                                    <i class="bi bi-graph-up text-success"></i>
-                                                                </div>
-                                                                <div>
-                                                                    <strong>Improved data coverage by 60%</strong> by implementing <span class="highlight">Playwright</span>-based pagination, conditional routing, and recursive detail extraction logic, boosting the quality of training data for <span class="highlight">LLM</span> fine-tuning and contract clause detection models
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                <div class="col-lg-6">
+                                    <div class="exp-card h-100">
+                                        <div class="exp-card-head">
+                                            <span class="exp-date">May 2025 – Aug. 2025</span>
+                                            <span class="exp-company">FPT Software</span>
                                         </div>
+                                        <h3 class="exp-role"><i class="bi bi-code-slash exp-role-icon"></i>AI Software Engineer Intern</h3>
+                                        <div class="exp-location">Quy Nhon, Vietnam</div>
+                                        <div class="exp-tags">
+                                            <span class="exp-tag">Next.js</span>
+                                            <span class="exp-tag">Python</span>
+                                            <span class="exp-tag">AWS</span>
+                                        </div>
+                                        <ul class="exp-list">
+                                            <li><strong>Designed and deployed</strong> a real-time web crawling pipeline using <span class="highlight">Next.js</span>, <span class="highlight">Python</span>, and <span class="highlight">MongoDB</span>, enabling schedule-based site crawling and processing of <span class="highlight">50+</span> contract listings daily from government procurement portals</li>
+                                            <li><strong>Integrated</strong> <span class="highlight">S3</span>, <span class="highlight">DynamoDB</span>, <span class="highlight">SQS</span>, and <span class="highlight">OpenSearch</span> to build scalable <span class="highlight">CI/CD</span>-ready data pipelines, automating file uploads, metadata indexing, and messaging workflows to support <span class="highlight">AI-driven</span> document processing</li>
+                                            <li><strong>Improved data coverage by 60%</strong> by implementing <span class="highlight">Playwright</span>-based pagination, conditional routing, and recursive detail extraction logic, boosting the quality of training data for <span class="highlight">LLM</span> fine-tuning and contract clause detection models</li>
+                                        </ul>
                                     </div>
                                 </div>
 
                                 <!-- Experience Card 4-->
-                                <div class="timeline-item mb-5 position-relative">
-                                    <div class="timeline-dot position-absolute" style="width: 16px; height: 16px; background: var(--bs-success); border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 3px var(--bs-success); left: 112px; top: 20px; z-index: 10;"></div>
-                                    <div class="timeline-date position-absolute" style="left: 0; top: 15px; width: 100px; text-align: right;">
-                                        <div class="text-success fw-bold small">Feb. 2025 - May 2025</div>
-                                    </div>
-                                    <div class="timeline-content ms-5" style="margin-left: 140px !important;">
-                                        <div class="card shadow border-0 rounded-4 experience-card">
-                                            <div class="card-body p-5">
-                                                <div class="row align-items-start gx-5">
-                                                    <div class="col-lg-5 mb-4 mb-lg-0">
-                                                        <div class="experience-header bg-gradient-success-to-info text-white p-4 rounded-4 position-relative overflow-hidden">
-                                                            <div class="experience-icon position-absolute top-0 end-0 opacity-25">
-                                                                <i class="bi bi-shield-check fs-1"></i>
-                                                            </div>
-                                                            <div class="position-relative z-2">
-                                                                <h5 class="mb-2">CyberFuture Camp Mentor</h5>
-                                                                <div class="small opacity-90">Bowling Green State University</div>
-                                                                <div class="small opacity-90">Bowling Green, OH</div>
-                                                                <div class="mt-3">
-                                                                    <span class="badge bg-white bg-opacity-25 text-white me-1">Cybersecurity</span>
-                                                                    <span class="badge bg-white bg-opacity-25 text-white">Teaching</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-7">
-                                                        <div class="experience-content">
-                                                            <div class="achievement-item mb-3">
-                                                                <div class="achievement-icon me-3">
-                                                                    <i class="bi bi-people-fill text-primary"></i>
-                                                                </div>
-                                                                <div>
-                                                                    <strong>Mentored 20+ middle school students</strong> in a four-day cybersecurity camp, teaching phishing, code and data principles, software vs. hardware, and SQL injection
-                                                                </div>
-                                                            </div>
-                                                            <div class="achievement-item mb-3">
-                                                                <div class="achievement-icon me-3">
-                                                                    <i class="bi bi-lightbulb text-secondary"></i>
-                                                                </div>
-                                                                <div>
-                                                                    <strong>Coordinated with 10 fellow mentors</strong> and professors to develop hands-on challenges that simulate real-world cyber threats, enhancing students' problem-solving skills
-                                                                </div>
-                                                            </div>
-                                                            <div class="achievement-item">
-                                                                <div class="achievement-icon me-3">
-                                                                    <i class="bi bi-lock text-success"></i>
-                                                                </div>
-                                                                <div>
-                                                                    <strong>Led interactive cryptography lessons</strong> on <span class="highlight">encryption</span> and <span class="highlight">password security</span>, making complex security concepts engaging and approachable
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                <div class="col-lg-6">
+                                    <div class="exp-card h-100">
+                                        <div class="exp-card-head">
+                                            <span class="exp-date">Feb. 2025 – May 2025</span>
+                                            <span class="exp-company">BGSU</span>
                                         </div>
+                                        <h3 class="exp-role"><i class="bi bi-shield-check exp-role-icon"></i>CyberFuture Camp Mentor</h3>
+                                        <div class="exp-location">Bowling Green, OH</div>
+                                        <div class="exp-tags">
+                                            <span class="exp-tag">Cybersecurity</span>
+                                            <span class="exp-tag">Teaching</span>
+                                        </div>
+                                        <ul class="exp-list">
+                                            <li><strong>Mentored 20+ middle school students</strong> in a four-day cybersecurity camp, teaching phishing, code and data principles, software vs. hardware, and SQL injection</li>
+                                            <li><strong>Coordinated with 10 fellow mentors</strong> and professors to develop hands-on challenges that simulate real-world cyber threats, enhancing students' problem-solving skills</li>
+                                            <li><strong>Led interactive cryptography lessons</strong> on <span class="highlight">encryption</span> and <span class="highlight">password security</span>, making complex security concepts engaging and approachable</li>
+                                        </ul>
                                     </div>
                                 </div>
 
                                 <!-- Experience Card 5-->
-                                <div class="timeline-item mb-5 position-relative">
-                                    <div class="timeline-dot position-absolute" style="width: 16px; height: 16px; background: var(--bs-info); border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 3px var(--bs-info); left: 112px; top: 20px; z-index: 10;"></div>
-                                    <div class="timeline-date position-absolute" style="left: 0; top: 15px; width: 100px; text-align: right;">
-                                        <div class="text-info fw-bold small">May 2024 - May 2025</div>
-                                    </div>
-                                    <div class="timeline-content ms-5" style="margin-left: 140px !important;">
-                                        <div class="card shadow border-0 rounded-4 experience-card">
-                                            <div class="card-body p-5">
-                                                <div class="row align-items-start gx-5">
-                                                    <div class="col-lg-5 mb-4 mb-lg-0">
-                                                        <div class="experience-header bg-gradient-info-to-warning text-white p-4 rounded-4 position-relative overflow-hidden">
-                                                            <div class="experience-icon position-absolute top-0 end-0 opacity-25">
-                                                                <i class="bi bi-gear-wide-connected fs-1"></i>
-                                                            </div>
-                                                            <div class="position-relative z-2">
-                                                                <h5 class="mb-2">Technical Lead</h5>
-                                                                <div class="small opacity-90">ACM, Bowling Green State University</div>
-                                                                <div class="small opacity-90">Bowling Green, OH</div>
-                                                                <div class="mt-3">
-                                                                    <span class="badge bg-white bg-opacity-25 text-white me-1">Leadership</span>
-                                                                    <span class="badge bg-white bg-opacity-25 text-white">Events</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-7">
-                                                        <div class="experience-content">
-                                                            <div class="achievement-item mb-3">
-                                                                <div class="achievement-icon me-3">
-                                                                    <i class="bi bi-calendar-event text-primary"></i>
-                                                                </div>
-                                                                <div>
-                                                                    <strong>Plan and execute ACM events</strong>, collaborating with Linux Club, CTF Club, and Women in ACM to host tech workshops, speaker sessions, and networking events for <span class="highlight">100+ students</span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="achievement-item mb-3">
-                                                                <div class="achievement-icon me-3">
-                                                                    <i class="bi bi-trophy text-secondary"></i>
-                                                                </div>
-                                                                <div>
-                                                                    <strong>Lead the organization</strong> of the BGSU Hackathon, managing logistics, securing up to <span class="highlight">$2000 sponsorship</span> from the Computer Science department, and designing competition tracks for <span class="highlight">50+ participants</span> in a public, university-wide event
-                                                                </div>
-                                                            </div>
-                                                            <div class="achievement-item">
-                                                                <div class="achievement-icon me-3">
-                                                                    <i class="bi bi-chat-dots text-success"></i>
-                                                                </div>
-                                                                <div>
-                                                                    <strong>Host 10+ office hours</strong> per semester, providing guidance to <span class="highlight">30+ attendees</span>, addressing technical questions, career advice, and ACM initiatives
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                <div class="col-lg-6">
+                                    <div class="exp-card h-100">
+                                        <div class="exp-card-head">
+                                            <span class="exp-date">May 2024 – May 2025</span>
+                                            <span class="exp-company">ACM, BGSU</span>
                                         </div>
+                                        <h3 class="exp-role"><i class="bi bi-gear-wide-connected exp-role-icon"></i>Technical Lead</h3>
+                                        <div class="exp-location">Bowling Green, OH</div>
+                                        <div class="exp-tags">
+                                            <span class="exp-tag">Leadership</span>
+                                            <span class="exp-tag">Events</span>
+                                        </div>
+                                        <ul class="exp-list">
+                                            <li><strong>Plan and execute ACM events</strong>, collaborating with Linux Club, CTF Club, and Women in ACM to host tech workshops, speaker sessions, and networking events for <span class="highlight">100+ students</span></li>
+                                            <li><strong>Lead the organization</strong> of the BGSU Hackathon, managing logistics, securing up to <span class="highlight">$2000 sponsorship</span> from the Computer Science department, and designing competition tracks for <span class="highlight">50+ participants</span> in a public, university-wide event</li>
+                                            <li><strong>Host 10+ office hours</strong> per semester, providing guidance to <span class="highlight">30+ attendees</span>, addressing technical questions, career advice, and ACM initiatives</li>
+                                        </ul>
                                     </div>
                                 </div>
 
                                 <!-- Experience Card 6-->
-                                <div class="timeline-item mb-5 position-relative">
-                                    <div class="timeline-dot position-absolute" style="width: 16px; height: 16px; background: var(--bs-danger); border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 3px var(--bs-danger); left: 112px; top: 20px; z-index: 10;"></div>
-                                    <div class="timeline-date position-absolute" style="left: 0; top: 15px; width: 100px; text-align: right;">
-                                        <div class="text-danger fw-bold small">Aug. 2023 - May 2024</div>
-                                    </div>
-                                    <div class="timeline-content ms-5" style="margin-left: 140px !important;">
-                                        <div class="card shadow border-0 rounded-4 experience-card">
-                                            <div class="card-body p-5">
-                                                <div class="row align-items-start gx-5">
-                                                    <div class="col-lg-5 mb-4 mb-lg-0">
-                                                        <div class="experience-header bg-gradient-danger-to-primary text-white p-4 rounded-4 position-relative overflow-hidden">
-                                                            <div class="experience-icon position-absolute top-0 end-0 opacity-25">
-                                                                <i class="bi bi-calculator fs-1"></i>
-                                                            </div>
-                                                            <div class="position-relative z-2">
-                                                                <h5 class="mb-2">Supplemental Instruction Leader</h5>
-                                                                <div class="small opacity-90">Learning Commons, BGSU</div>
-                                                                <div class="small opacity-90">Bowling Green, OH</div>
-                                                                <div class="mt-3">
-                                                                    <span class="badge bg-white bg-opacity-25 text-white me-1">Teaching</span>
-                                                                    <span class="badge bg-white bg-opacity-25 text-white">Mathematics</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-7">
-                                                        <div class="experience-content">
-                                                            <div class="achievement-item mb-3">
-                                                                <div class="achievement-icon me-3">
-                                                                    <i class="bi bi-calendar-week text-primary"></i>
-                                                                </div>
-                                                                <div>
-                                                                    <strong>Led 3 weekly SI sessions</strong>, reinforcing key pre-calculus concepts and study strategies, contributing to an <span class="highlight">8% increase in course pass rates</span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="achievement-item mb-3">
-                                                                <div class="achievement-icon me-3">
-                                                                    <i class="bi bi-graph-up text-secondary"></i>
-                                                                </div>
-                                                                <div>
-                                                                    <strong>Collaborated with instructors</strong> to align session content with the curriculum, identifying and addressing student learning gaps while maintaining <span class="highlight">95% session attendance</span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="achievement-item">
-                                                                <div class="achievement-icon me-3">
-                                                                    <i class="bi bi-mortarboard text-success"></i>
-                                                                </div>
-                                                                <div>
-                                                                    <strong>Developed interactive problem-solving activities</strong>, transforming complex mathematical concepts into engaging peer-learning experiences to improve comprehension and retention, reaching <span class="highlight">30+ students</span> per semester
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                <div class="col-lg-6">
+                                    <div class="exp-card h-100">
+                                        <div class="exp-card-head">
+                                            <span class="exp-date">Aug. 2023 – May 2024</span>
+                                            <span class="exp-company">Learning Commons, BGSU</span>
                                         </div>
+                                        <h3 class="exp-role"><i class="bi bi-calculator exp-role-icon"></i>Supplemental Instruction Leader</h3>
+                                        <div class="exp-location">Bowling Green, OH</div>
+                                        <div class="exp-tags">
+                                            <span class="exp-tag">Teaching</span>
+                                            <span class="exp-tag">Mathematics</span>
+                                        </div>
+                                        <ul class="exp-list">
+                                            <li><strong>Led 3 weekly SI sessions</strong>, reinforcing key pre-calculus concepts and study strategies, contributing to an <span class="highlight">8% increase in course pass rates</span></li>
+                                            <li><strong>Collaborated with instructors</strong> to align session content with the curriculum, identifying and addressing student learning gaps while maintaining <span class="highlight">95% session attendance</span></li>
+                                            <li><strong>Developed interactive problem-solving activities</strong>, transforming complex mathematical concepts into engaging peer-learning experiences to improve comprehension and retention, reaching <span class="highlight">30+ students</span> per semester</li>
+                                        </ul>
                                     </div>
                                 </div>
 
                                 <!-- Experience Card 7-->
-                                <div class="timeline-item mb-5 position-relative">
-                                    <div class="timeline-dot position-absolute" style="width: 16px; height: 16px; background: var(--bs-primary); border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 3px var(--bs-primary); left: 112px; top: 20px; z-index: 10;"></div>
-                                    <div class="timeline-date position-absolute" style="left: 0; top: 15px; width: 100px; text-align: right;">
-                                        <div class="text-primary fw-bold small">May 2023 - Jul. 2023</div>
-                                    </div>
-                                    <div class="timeline-content ms-5" style="margin-left: 140px !important;">
-                                        <div class="card shadow border-0 rounded-4 experience-card">
-                                            <div class="card-body p-5">
-                                                <div class="row align-items-start gx-5">
-                                                    <div class="col-lg-5 mb-4 mb-lg-0">
-                                                        <div class="experience-header bg-gradient-primary-to-secondary text-white p-4 rounded-4 position-relative overflow-hidden">
-                                                            <div class="experience-icon position-absolute top-0 end-0 opacity-25">
-                                                                <i class="bi bi-robot fs-1"></i>
-                                                            </div>
-                                                            <div class="position-relative z-2">
-                                                                <h5 class="mb-2">NLP Researcher Intern</h5>
-                                                                <div class="small opacity-90">Ton Duc Thang University</div>
-                                                                <div class="small opacity-90">Ho Chi Minh, Vietnam</div>
-                                                                <div class="mt-3">
-                                                                    <span class="badge bg-white bg-opacity-25 text-white me-1">NLP</span>
-                                                                    <span class="badge bg-white bg-opacity-25 text-white">AI/ML</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-7">
-                                                        <div class="experience-content">
-                                                            <div class="achievement-item mb-3">
-                                                                <div class="achievement-icon me-3">
-                                                                    <i class="bi bi-gear text-primary"></i>
-                                                                </div>
-                                                                <div>
-                                                                    <strong>Optimized NLP models</strong> by integrating computational intelligence techniques, improving model accuracy and efficiency for legal text processing
-                                                                </div>
-                                                            </div>
-                                                            <div class="achievement-item mb-3">
-                                                                <div class="achievement-icon me-3">
-                                                                    <i class="bi bi-search text-secondary"></i>
-                                                                </div>
-                                                                <div>
-                                                                    <strong>Developed a machine learning model</strong> with the <span class="highlight">NLP Lab Team</span>, leveraging <span class="highlight">Python libraries and APIs</span> to assist users in answering <span class="highlight">500+ queries</span> related to the Criminal Code of Vietnam
-                                                                </div>
-                                                            </div>
-                                                            <div class="achievement-item">
-                                                                <div class="achievement-icon me-3">
-                                                                    <i class="bi bi-brain text-success"></i>
-                                                                </div>
-                                                                <div>
-                                                                    <strong>Applied AI, Data Science, and NLP techniques</strong> to enhance <span class="highlight">Large Language Models</span>, refining their ability to interpret complex legal documents with increased accuracy
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                <div class="col-lg-6">
+                                    <div class="exp-card h-100">
+                                        <div class="exp-card-head">
+                                            <span class="exp-date">May 2023 – Jul. 2023</span>
+                                            <span class="exp-company">Ton Duc Thang University</span>
                                         </div>
+                                        <h3 class="exp-role"><i class="bi bi-robot exp-role-icon"></i>NLP Researcher Intern</h3>
+                                        <div class="exp-location">Ho Chi Minh, Vietnam</div>
+                                        <div class="exp-tags">
+                                            <span class="exp-tag">NLP</span>
+                                            <span class="exp-tag">AI/ML</span>
+                                        </div>
+                                        <ul class="exp-list">
+                                            <li><strong>Optimized NLP models</strong> by integrating computational intelligence techniques, improving model accuracy and efficiency for legal text processing</li>
+                                            <li><strong>Developed a machine learning model</strong> with the <span class="highlight">NLP Lab Team</span>, leveraging <span class="highlight">Python libraries and APIs</span> to assist users in answering <span class="highlight">500+ queries</span> related to the Criminal Code of Vietnam</li>
+                                            <li><strong>Applied AI, Data Science, and NLP techniques</strong> to enhance <span class="highlight">Large Language Models</span>, refining their ability to interpret complex legal documents with increased accuracy</li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -732,17 +451,6 @@
                 </div>
             </div>
         </main>
-        <!-- Map widget -->
-        <div class="container mt-4 mb-3">
-            <div class="row justify-content-center">
-                <div class="col-md-8 text-center">
-                    <h6 class="text-muted mb-3">🌍 Visitor Map - See where my portfolio visitors are from around the world!</h6>
-                    <div style="width: 100%; max-width: 500px; height: 300px; margin: 0 auto;">
-                        <script type="text/javascript" id="mapmyvisitors" src="//mapmyvisitors.com/map.js?d=za-_uvMblhAGGQL1DkMBsGYTTRllvyUe3FBFPp3_L-Q&cl=ffffff&w=500&h=300"></script>
-                    </div>
-                </div>
-            </div>
-        </div>
         <!-- Footer-->
         <footer class="bg-white py-4 mt-auto">
             <div class="container px-5">
@@ -760,112 +468,12 @@
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Dark Mode Toggle -->
-        <script src="js/darkmode.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
         
-        <!-- Custom Resume Animations -->
+        <!-- Smooth scroll for in-page anchor links -->
         <script>
-            // Animate timeline items when they come into view
-            function animateTimelineItems() {
-                const timelineItems = document.querySelectorAll('.timeline-item');
-                
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('animate');
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.3 });
-                
-                timelineItems.forEach(item => observer.observe(item));
-            }
-            
-            // Animate progress bars when they come into view
-            function animateProgressBars() {
-                const progressBars = document.querySelectorAll('.progress-bar');
-                
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            const progressBar = entry.target;
-                            const width = progressBar.style.width;
-                            progressBar.style.width = '0%';
-                            
-                            setTimeout(() => {
-                                progressBar.style.width = width;
-                                progressBar.classList.add('animate');
-                            }, 200);
-                            
-                            observer.unobserve(progressBar);
-                        }
-                    });
-                }, { threshold: 0.5 });
-                
-                progressBars.forEach(bar => observer.observe(bar));
-            }
-            
-            // Add hover effects to timeline content
-            function addTimelineEffects() {
-                const timelineContents = document.querySelectorAll('.timeline-content');
-                
-                timelineContents.forEach(content => {
-                    content.addEventListener('mouseenter', function() {
-                        this.style.transform = 'translateY(-8px) scale(1.02)';
-                    });
-                    
-                    content.addEventListener('mouseleave', function() {
-                        this.style.transform = 'translateY(0) scale(1)';
-                    });
-                });
-            }
-            
-            // Add skill card interactions
-            function addSkillCardEffects() {
-                const skillCards = document.querySelectorAll('.skill-card, .language-card');
-                
-                skillCards.forEach(card => {
-                    card.addEventListener('mouseenter', function() {
-                        this.style.transform = 'translateY(-5px) scale(1.02)';
-                    });
-                    
-                    card.addEventListener('mouseleave', function() {
-                        this.style.transform = 'translateY(0) scale(1)';
-                    });
-                });
-            }
-            
-            // Add experience card animations
-            function addExperienceCardEffects() {
-                const experienceCards = document.querySelectorAll('.experience-card');
-                
-                experienceCards.forEach(card => {
-                    // Add staggered animation for achievement items
-                    const achievementItems = card.querySelectorAll('.achievement-item');
-                    achievementItems.forEach((item, index) => {
-                        item.style.opacity = '0';
-                        item.style.transform = 'translateX(-20px)';
-                        
-                        setTimeout(() => {
-                            item.style.transition = 'all 0.5s ease';
-                            item.style.opacity = '1';
-                            item.style.transform = 'translateX(0)';
-                        }, 200 + (index * 100));
-                    });
-                });
-            }
-            
-            // Initialize all animations when page loads
             document.addEventListener('DOMContentLoaded', function() {
-                animateTimelineItems();
-                animateProgressBars();
-                addTimelineEffects();
-                addSkillCardEffects();
-                addExperienceCardEffects();
-                
-                // Add smooth scroll for navigation
                 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                     anchor.addEventListener('click', function (e) {
                         e.preventDefault();
