@@ -53,6 +53,14 @@ html,
 body {
   background-color: var(--sp-bg) !important;
   color: var(--sp-text);
+  overflow-x: hidden;
+}
+
+.visitor-map-wrap {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  overflow: hidden;
 }
 
 body {
@@ -422,22 +430,43 @@ hr {
 
 /* === Hero profile graphic ================================================ */
 
-.profile {
-  background: var(--sp-elevated) !important;
+.profile-art {
+  position: relative;
+  width: min(78vw, 420px);
+  display: flex;
+  justify-content: center;
 }
 
-.profile .dots-1 svg,
-.profile .dots-3 svg {
-  fill: var(--sp-text-silver);
+.profile-glow {
+  position: absolute;
+  inset: -10% -25% -4%;
+  background:
+    radial-gradient(closest-side, rgba(30, 215, 96, 0.32), transparent 70%);
+  filter: blur(40px);
+  z-index: 0;
 }
 
-.profile .dots-2 svg,
-.profile .dots-4 svg {
-  fill: var(--sp-green);
+.profile-cutout {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 24px 40px rgba(0, 0, 0, 0.55));
 }
 
 .typewriter-caret {
   background: var(--sp-green);
+}
+
+/* Reserve space for the longest typewriter phrase so the page never shifts */
+.hero-headline {
+  min-height: 2.32em;
+  word-break: break-word;
+}
+
+#typewriter {
+  display: inline;
 }
 
 /* === Forms ================================================================ */
