@@ -622,7 +622,48 @@ footer a.small:hover {
   font-size: 0.85rem;
 }
 
-/* === Resume: experience card grid ======================================= */
+/* === Resume: experience timeline ========================================= */
+
+.exp-timeline {
+  position: relative;
+}
+
+.exp-row {
+  position: relative;
+}
+
+.exp-row:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 992px) {
+  .exp-timeline::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    width: 2px;
+    background: linear-gradient(180deg, var(--sp-green), rgba(30, 215, 96, 0.15));
+    transform: translateX(-50%);
+    z-index: 0;
+  }
+
+  .exp-row::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 14px;
+    height: 14px;
+    background: var(--sp-green);
+    border: 3px solid var(--sp-bg);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    box-shadow: 0 0 0 4px rgba(30, 215, 96, 0.15);
+  }
+}
 
 .exp-card {
   background-color: var(--sp-card);
