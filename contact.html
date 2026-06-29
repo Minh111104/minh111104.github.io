@@ -174,9 +174,15 @@
                     submitButton.innerHTML = '<i class="bi bi-hourglass-split me-2"></i>Sending...';
                     submitButton.disabled = true;
                     
+                    // Use the local backend during dev, the deployed Render backend otherwise.
+                    // Replace this with your actual Render service URL if it differs.
+                    const API_BASE = ['localhost', '127.0.0.1'].includes(window.location.hostname)
+                        ? 'http://localhost:3000'
+                        : 'https://portfolio-contact-form.onrender.com';
+
                     try {
                         // Try to submit to backend
-                        const response = await fetch('http://localhost:3000/submit-form', {
+                        const response = await fetch(`${API_BASE}/submit-form`, {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',
